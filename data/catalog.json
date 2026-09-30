@@ -84,20 +84,6 @@
     "health": {}
   },
   {
-    "id": "my-english-handbook",
-    "name": "实用英语复习手册",
-    "url": "https://frankwang98.asia/lemon_english/",
-    "description": "已归档 · 词汇、语法与造句练习，可保存本地学习进度。",
-    "category": "我的项目",
-    "kind": "网站",
-    "source": "personal",
-    "featured": false,
-    "status": "reachable",
-    "note": "已归档 · 保留浏览",
-    "editorial_date": "2026-09-30",
-    "health": {}
-  },
-  {
     "id": "my-petshop-demo",
     "name": "泡泡爪宠物洗护店",
     "url": "https://frankwang98.asia/admin_petshop/",
