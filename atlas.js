@@ -8,5 +8,5 @@ document.querySelector('#categories').addEventListener('click',e=>{const b=e.tar
 document.querySelector('.filters').addEventListener('click',e=>{const b=e.target.closest('button');if(b){view=b.dataset.view;category='全部';render();}});
 document.querySelector('.grid').addEventListener('click',e=>{const b=e.target.closest('.save');if(!b)return;const id=b.closest('.card').dataset.id;saved.has(id)?saved.delete(id):saved.add(id);try{localStorage.setItem('webatlas:saved',JSON.stringify([...saved]));}catch{}render();});
 document.addEventListener('keydown',e=>{if(e.key==='/'&&!['INPUT','TEXTAREA','SELECT'].includes(document.activeElement.tagName)){e.preventDefault();search.focus();}if(e.key==='Escape'&&document.activeElement===search){search.value='';render();}});
-// Start with a small curated selection; all original entries are one click away.
-view='featured';render();
+// Start with the complete compact directory.
+render();
