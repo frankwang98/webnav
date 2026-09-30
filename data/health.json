@@ -1,21 +1,21 @@
 [
   {
     "id": "legacy-001",
-    "checked_at": "2026-09-30T07:21:57.182691+00:00",
+    "checked_at": "2026-09-30T07:36:10.170322+00:00",
     "status": "review",
     "code": 502,
     "detail": "HTTP 502；可能是登录、反爬或区域限制，待人工确认"
   },
   {
     "id": "legacy-002",
-    "checked_at": "2026-09-30T07:21:57.182979+00:00",
+    "checked_at": "2026-09-30T07:36:10.170575+00:00",
     "status": "review",
     "code": 502,
     "detail": "HTTP 502；可能是登录、反爬或区域限制，待人工确认"
   },
   {
     "id": "legacy-003",
-    "checked_at": "2026-09-30T07:21:57.183269+00:00",
+    "checked_at": "2026-09-30T07:36:10.170924+00:00",
     "status": "reachable",
     "code": 200,
     "final_url": "https://github.com/",
@@ -23,7 +23,7 @@
   },
   {
     "id": "legacy-004",
-    "checked_at": "2026-09-30T07:21:57.183752+00:00",
+    "checked_at": "2026-09-30T07:36:10.172505+00:00",
     "status": "reachable",
     "code": 200,
     "final_url": "https://gitee.com/",
@@ -31,31 +31,31 @@
   },
   {
     "id": "legacy-005",
-    "checked_at": "2026-09-30T07:21:57.184732+00:00",
+    "checked_at": "2026-09-30T07:36:10.172833+00:00",
     "status": "internal",
     "detail": "仅内网可用；不从公共网络探测"
   },
   {
     "id": "legacy-006",
-    "checked_at": "2026-09-30T07:21:57.185155+00:00",
+    "checked_at": "2026-09-30T07:36:10.173178+00:00",
     "status": "internal",
     "detail": "仅内网可用；不从公共网络探测"
   },
   {
     "id": "legacy-007",
-    "checked_at": "2026-09-30T07:21:57.185609+00:00",
+    "checked_at": "2026-09-30T07:36:10.173452+00:00",
     "status": "internal",
     "detail": "仅内网可用；不从公共网络探测"
   },
   {
     "id": "legacy-008",
-    "checked_at": "2026-09-30T07:21:57.185739+00:00",
+    "checked_at": "2026-09-30T07:36:10.173504+00:00",
     "status": "internal",
     "detail": "仅内网可用；不从公共网络探测"
   },
   {
     "id": "legacy-009",
-    "checked_at": "2026-09-30T07:21:57.185800+00:00",
+    "checked_at": "2026-09-30T07:36:10.173544+00:00",
     "status": "reachable",
     "code": 200,
     "final_url": "https://www.nowcoder.com/",
@@ -63,7 +63,7 @@
   },
   {
     "id": "legacy-010",
-    "checked_at": "2026-09-30T07:21:57.186257+00:00",
+    "checked_at": "2026-09-30T07:36:10.173723+00:00",
     "status": "reachable",
     "code": 200,
     "final_url": "https://leetcode.cn/",
@@ -71,14 +71,14 @@
   },
   {
     "id": "legacy-011",
-    "checked_at": "2026-09-30T07:21:57.186300+00:00",
+    "checked_at": "2026-09-30T07:36:10.173808+00:00",
     "status": "review",
     "code": 521,
     "detail": "HTTP 521；可能是登录、反爬或区域限制，待人工确认"
   },
   {
     "id": "legacy-012",
-    "checked_at": "2026-09-30T07:21:57.186631+00:00",
+    "checked_at": "2026-09-30T07:36:10.174013+00:00",
     "status": "reachable",
     "code": 200,
     "final_url": "https://www.bilibili.com/",
@@ -86,7 +86,7 @@
   },
   {
     "id": "legacy-013",
-    "checked_at": "2026-09-30T07:22:02.264095+00:00",
+    "checked_at": "2026-09-30T07:36:16.480271+00:00",
     "status": "reachable",
     "code": 200,
     "final_url": "https://www.google.com/",
@@ -94,7 +94,7 @@
   },
   {
     "id": "legacy-014",
-    "checked_at": "2026-09-30T07:22:02.264202+00:00",
+    "checked_at": "2026-09-30T07:36:16.480881+00:00",
     "status": "reachable",
     "code": 200,
     "final_url": "https://yandex.com/",
@@ -102,14 +102,14 @@
   },
   {
     "id": "legacy-015",
-    "checked_at": "2026-09-30T07:22:03.842500+00:00",
+    "checked_at": "2026-09-30T07:36:17.172603+00:00",
     "status": "review",
     "code": 502,
     "detail": "HTTP 502；可能是登录、反爬或区域限制，待人工确认"
   },
   {
     "id": "legacy-016",
-    "checked_at": "2026-09-30T07:22:04.988207+00:00",
+    "checked_at": "2026-09-30T07:36:17.637905+00:00",
     "status": "reachable",
     "code": 200,
     "final_url": "https://www.processon.com/",
@@ -117,7 +117,7 @@
   },
   {
     "id": "legacy-017",
-    "checked_at": "2026-09-30T07:22:05.191492+00:00",
+    "checked_at": "2026-09-30T07:36:19.058836+00:00",
     "status": "reachable",
     "code": 200,
     "final_url": "https://webnote.cc/",
@@ -125,7 +125,7 @@
   },
   {
     "id": "legacy-018",
-    "checked_at": "2026-09-30T07:22:06.206538+00:00",
+    "checked_at": "2026-09-30T07:36:19.259335+00:00",
     "status": "reachable",
     "code": 200,
     "final_url": "http://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20",
@@ -133,7 +133,7 @@
   },
   {
     "id": "legacy-019",
-    "checked_at": "2026-09-30T07:22:08.406821+00:00",
+    "checked_at": "2026-09-30T07:36:21.410446+00:00",
     "status": "reachable",
     "code": 200,
     "final_url": "https://bz.zzzmh.cn/index",
@@ -141,7 +141,7 @@
   },
   {
     "id": "legacy-020",
-    "checked_at": "2026-09-30T07:22:08.732742+00:00",
+    "checked_at": "2026-09-30T07:36:21.636793+00:00",
     "status": "reachable",
     "code": 200,
     "final_url": "https://wall.alphacoders.com/",
@@ -149,21 +149,21 @@
   },
   {
     "id": "legacy-021",
-    "checked_at": "2026-09-30T07:22:08.882979+00:00",
+    "checked_at": "2026-09-30T07:36:21.807549+00:00",
     "status": "review",
     "code": 403,
     "detail": "HTTP 403；可能是登录、反爬或区域限制，待人工确认"
   },
   {
     "id": "legacy-022",
-    "checked_at": "2026-09-30T07:22:09.093441+00:00",
+    "checked_at": "2026-09-30T07:36:22.204818+00:00",
     "status": "review",
     "code": 301,
     "detail": "HTTP 301；可能是登录、反爬或区域限制，待人工确认"
   },
   {
     "id": "legacy-023",
-    "checked_at": "2026-09-30T07:22:11.255933+00:00",
+    "checked_at": "2026-09-30T07:36:24.621320+00:00",
     "status": "reachable",
     "code": 200,
     "final_url": "https://hello-yundong.com",
@@ -171,7 +171,7 @@
   },
   {
     "id": "legacy-024",
-    "checked_at": "2026-09-30T07:22:11.298508+00:00",
+    "checked_at": "2026-09-30T07:36:27.907600+00:00",
     "status": "reachable",
     "code": 200,
     "final_url": "https://sms-activate.org/",
@@ -179,7 +179,7 @@
   },
   {
     "id": "obsidian",
-    "checked_at": "2026-09-30T07:22:11.696530+00:00",
+    "checked_at": "2026-09-30T07:36:28.083580+00:00",
     "status": "reachable",
     "code": 200,
     "final_url": "https://obsidian.md/",
@@ -187,7 +187,7 @@
   },
   {
     "id": "bitwarden",
-    "checked_at": "2026-09-30T07:22:12.981701+00:00",
+    "checked_at": "2026-09-30T07:36:28.338418+00:00",
     "status": "reachable",
     "code": 200,
     "final_url": "https://bitwarden.com/",
@@ -195,7 +195,7 @@
   },
   {
     "id": "localsend",
-    "checked_at": "2026-09-30T07:22:13.936414+00:00",
+    "checked_at": "2026-09-30T07:36:28.351891+00:00",
     "status": "reachable",
     "code": 200,
     "final_url": "https://localsend.org/",
@@ -203,10 +203,66 @@
   },
   {
     "id": "deepl",
-    "checked_at": "2026-09-30T07:22:15.822762+00:00",
+    "checked_at": "2026-09-30T07:36:30.069732+00:00",
     "status": "reachable",
     "code": 200,
     "final_url": "https://www.deepl.com/en/translate",
+    "detail": "HTTP 可达；不代表内容已人工审查"
+  },
+  {
+    "id": "wikipedia",
+    "checked_at": "2026-09-30T07:36:31.611254+00:00",
+    "status": "reachable",
+    "code": 200,
+    "final_url": "https://www.wikipedia.org/",
+    "detail": "HTTP 可达；不代表内容已人工审查"
+  },
+  {
+    "id": "youtube",
+    "checked_at": "2026-09-30T07:36:31.970310+00:00",
+    "status": "reachable",
+    "code": 200,
+    "final_url": "https://www.youtube.com/",
+    "detail": "HTTP 可达；不代表内容已人工审查"
+  },
+  {
+    "id": "tiktok",
+    "checked_at": "2026-09-30T07:36:33.507472+00:00",
+    "status": "reachable",
+    "code": 200,
+    "final_url": "https://www.tiktok.com/",
+    "detail": "HTTP 可达；不代表内容已人工审查"
+  },
+  {
+    "id": "douyin",
+    "checked_at": "2026-09-30T07:36:33.573423+00:00",
+    "status": "reachable",
+    "code": 200,
+    "final_url": "https://www.douyin.com/",
+    "detail": "HTTP 可达；不代表内容已人工审查"
+  },
+  {
+    "id": "kejilion",
+    "checked_at": "2026-09-30T07:36:35.375352+00:00",
+    "status": "reachable",
+    "code": 200,
+    "final_url": "https://kejilion.pro/",
+    "detail": "HTTP 可达；不代表内容已人工审查"
+  },
+  {
+    "id": "archive",
+    "checked_at": "2026-09-30T07:36:36.848305+00:00",
+    "status": "reachable",
+    "code": 200,
+    "final_url": "https://archive.org/",
+    "detail": "HTTP 可达；不代表内容已人工审查"
+  },
+  {
+    "id": "googletranslate",
+    "checked_at": "2026-09-30T07:36:38.081145+00:00",
+    "status": "reachable",
+    "code": 200,
+    "final_url": "https://translate.google.com/?ucbcb=1",
     "detail": "HTTP 可达；不代表内容已人工审查"
   }
 ]
