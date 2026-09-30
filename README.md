@@ -4,8 +4,8 @@
 
 **[打开 WebAtlas](https://frankwang98.asia/webnav/)** · [推荐 / 纠错](https://github.com/frankwang98/webnav/issues/new/choose)
 
-- 默认 Google 网页搜索；独立站内搜索；分类、精选、App 与本地收藏。桌面首页采用紧凑卡片布局，手机保持可读性。
-- 24 个原有条目完整保留；检查异常进入“待确认”，最终取舍由维护者决定。
+- 默认 Google 网页搜索；独立站内搜索；分类、精选、App 与本地收藏。桌面首页每行 5 个卡片，自然滚动；手机保持双列布局。主题自动跟随系统明暗设置。
+- 原有 24 个条目中，6 个待确认条目已按维护者决定删除，继续保留 18 个。后续检查异常仍进入“待确认”。
 - 内网入口标注“仅内网”，不从公网探测，不当作失效。
 - 新增精选：Obsidian、Bitwarden、LocalSend、DeepL；Wikipedia、YouTube、TikTok、抖音、科技lion、Internet Archive、Google 翻译。官方来源记录在条目中。
 - 无前端框架、第三方字体、远程图标或浏览器探测服务；关闭 JavaScript 仍可打开全部网址。

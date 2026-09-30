@@ -16,4 +16,4 @@ nav=''.join(f'<button type="button" data-category="{e(c)}">{e(c)} <span>{sum(x["
 template=(p/'index.template.html').read_text();template=template.replace('{{CARDS}}','\n'.join(cards)).replace('{{CATEGORIES}}',nav).replace('{{COUNT}}',str(len(links))).replace('{{REVIEW}}',str(sum(x['status']=='review' for x in links)))
 (p/'index.html').write_text(template)
 (p/'data/catalog.json').write_text(json.dumps(links,ensure_ascii=False,indent=2)+'\n')
-print(f'Built {len(links)} cards, all 24 legacy entries preserved; {sum(x["status"]=="review" for x in links)} need review.')
+print(f'Built {len(links)} cards, legacy entries retained according to owner decisions; {sum(x["status"]=="review" for x in links)} need review.')

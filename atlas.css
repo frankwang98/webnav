@@ -35,3 +35,46 @@ header{height:60px;padding:0 3%}.brand strong{font-size:21px}.brand img{width:30
  .card:has(details[open]){height:auto}
  footer{margin-top:12px;padding:8px 0;font-size:clamp(9px,.6vw,11px)}
 }
+/* A comfortable desktop directory; content may scroll naturally. */
+@media(min-width:1001px){
+ .layout{max-width:1920px;margin:auto;grid-template-columns:clamp(190px,12vw,240px) minmax(0,1fr)}
+ main{padding:28px clamp(24px,2.2vw,44px) 24px}
+ header{height:66px}
+ .hero{padding-bottom:24px}
+ .hero h1{font-size:clamp(26px,1.8vw,34px);margin-bottom:18px}
+ .search-row{height:48px}
+ .stats{margin-top:12px}
+ .section-heading{height:52px}
+ .section-heading h2{font-size:20px}
+ .filters{gap:8px}
+ .filters button{padding:7px 15px;font-size:13px}
+ .view-note{margin:12px 0;font-size:11px}
+ .grid{grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(12px,1vw,20px)}
+ .card{height:auto;min-height:140px;padding:18px;border-radius:12px}
+ .card h3{font-size:clamp(14px,.86vw,17px);margin-bottom:10px}
+ .card>p{height:auto;min-height:2.9em;font-size:clamp(12px,.7vw,14px);line-height:1.5;margin-bottom:12px}
+ .card-bottom{font-size:11px;padding-top:10px}
+ .save{top:15px;right:15px}
+ .badge.review,.badge.internal{bottom:15px;right:15px;font-size:10px}
+ .card details:not([open]){bottom:15px;left:18px}
+ footer{margin-top:26px;padding:16px 0;font-size:11px}
+}
+/* Native controls and the page follow the operating system appearance. */
+:root{color-scheme:light dark}
+@media(prefers-color-scheme:dark){
+ :root{--ink:#d7e8dd;--muted:#a0b0a6;--bg:#141b19;--line:#35423b;--accent:#a9cf64}
+ .card,.search,.web-search{background:#1d2823}
+ .card p{color:#b0c1b5}
+ .card-bottom{border-color:var(--line)}
+ #categories button[aria-pressed=true],.web-search button{background:#c5dfca;color:#14221a}
+ .filters button[aria-pressed=true]{color:#17240e}
+ .hero em{color:#eef5e5;background:linear-gradient(transparent 67%,#526837 67%)}
+ .badge{background:#2a3930;color:var(--muted)}
+ .badge.review{background:#49391f;color:#edce85}
+ .badge.internal{background:#283448;color:#b8c9f1}
+ .card details{color:#edce85}
+ .save{color:#afc0b1}.save[aria-pressed=true]{color:#c3e981}
+ .card:hover{border-color:#72866b}
+ .skip:focus{background:#1d2823}
+ input::placeholder{color:#9cad9f}
+}

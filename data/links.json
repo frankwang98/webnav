@@ -1,29 +1,5 @@
 [
   {
-    "id": "legacy-001",
-    "name": "frankwang98's Blog",
-    "url": "https://frankwang98.top/",
-    "description": "个人博客",
-    "category": "个人主页",
-    "kind": "网站",
-    "source": "legacy",
-    "featured": false,
-    "status": "unchecked",
-    "note": ""
-  },
-  {
-    "id": "legacy-002",
-    "name": "frankwang98's Wiki",
-    "url": "https://frankwang98.top/wiki/",
-    "description": "个人学习成长",
-    "category": "个人主页",
-    "kind": "网站",
-    "source": "legacy",
-    "featured": false,
-    "status": "unchecked",
-    "note": ""
-  },
-  {
     "id": "legacy-003",
     "name": "GitHub",
     "url": "https://github.com/",
@@ -120,18 +96,6 @@
     "note": ""
   },
   {
-    "id": "legacy-011",
-    "name": "CSDN",
-    "url": "https://www.csdn.net/",
-    "description": "公共IT技术博客。",
-    "category": "学习社区",
-    "kind": "网站",
-    "source": "legacy",
-    "featured": false,
-    "status": "unchecked",
-    "note": ""
-  },
-  {
     "id": "legacy-012",
     "name": "Bilibili",
     "url": "https://www.bilibili.com/",
@@ -160,18 +124,6 @@
     "name": "Yandex",
     "url": "https://yandex.com/",
     "description": "Yandex。",
-    "category": "常用工具",
-    "kind": "网站",
-    "source": "legacy",
-    "featured": false,
-    "status": "unchecked",
-    "note": ""
-  },
-  {
-    "id": "legacy-015",
-    "name": "chatbot",
-    "url": "https://chatbot.theb.ai/#/chat/1002",
-    "description": "AI知识机器人。",
     "category": "常用工具",
     "kind": "网站",
     "source": "legacy",
@@ -232,30 +184,6 @@
     "name": "墙纸推荐",
     "url": "https://wall.alphacoders.com/",
     "description": "壁纸。",
-    "category": "常用工具",
-    "kind": "网站",
-    "source": "legacy",
-    "featured": false,
-    "status": "unchecked",
-    "note": ""
-  },
-  {
-    "id": "legacy-021",
-    "name": "一元机场",
-    "url": "https://xn--4gq62f52gdss.com/#/login",
-    "description": "机场。",
-    "category": "常用工具",
-    "kind": "网站",
-    "source": "legacy",
-    "featured": false,
-    "status": "unchecked",
-    "note": ""
-  },
-  {
-    "id": "legacy-022",
-    "name": "多元机场",
-    "url": "https://ca.bitznetuk.com/#/dashboard",
-    "description": "机场。",
     "category": "常用工具",
     "kind": "网站",
     "source": "legacy",

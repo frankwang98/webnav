@@ -1,19 +1,5 @@
 [
   {
-    "id": "legacy-001",
-    "checked_at": "2026-09-30T07:36:10.170322+00:00",
-    "status": "review",
-    "code": 502,
-    "detail": "HTTP 502；可能是登录、反爬或区域限制，待人工确认"
-  },
-  {
-    "id": "legacy-002",
-    "checked_at": "2026-09-30T07:36:10.170575+00:00",
-    "status": "review",
-    "code": 502,
-    "detail": "HTTP 502；可能是登录、反爬或区域限制，待人工确认"
-  },
-  {
     "id": "legacy-003",
     "checked_at": "2026-09-30T07:36:10.170924+00:00",
     "status": "reachable",
@@ -70,13 +56,6 @@
     "detail": "HTTP 可达；不代表内容已人工审查"
   },
   {
-    "id": "legacy-011",
-    "checked_at": "2026-09-30T07:36:10.173808+00:00",
-    "status": "review",
-    "code": 521,
-    "detail": "HTTP 521；可能是登录、反爬或区域限制，待人工确认"
-  },
-  {
     "id": "legacy-012",
     "checked_at": "2026-09-30T07:36:10.174013+00:00",
     "status": "reachable",
@@ -99,13 +78,6 @@
     "code": 200,
     "final_url": "https://yandex.com/",
     "detail": "HTTP 可达；不代表内容已人工审查"
-  },
-  {
-    "id": "legacy-015",
-    "checked_at": "2026-09-30T07:36:17.172603+00:00",
-    "status": "review",
-    "code": 502,
-    "detail": "HTTP 502；可能是登录、反爬或区域限制，待人工确认"
   },
   {
     "id": "legacy-016",
@@ -146,20 +118,6 @@
     "code": 200,
     "final_url": "https://wall.alphacoders.com/",
     "detail": "HTTP 可达；不代表内容已人工审查"
-  },
-  {
-    "id": "legacy-021",
-    "checked_at": "2026-09-30T07:36:21.807549+00:00",
-    "status": "review",
-    "code": 403,
-    "detail": "HTTP 403；可能是登录、反爬或区域限制，待人工确认"
-  },
-  {
-    "id": "legacy-022",
-    "checked_at": "2026-09-30T07:36:22.204818+00:00",
-    "status": "review",
-    "code": 301,
-    "detail": "HTTP 301；可能是登录、反爬或区域限制，待人工确认"
   },
   {
     "id": "legacy-023",
