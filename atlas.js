@@ -1,4 +1,15 @@
 'use strict';
+// Same system → light → dark cycle and preference key as the personal homepage.
+(function(){
+ const key='fw.theme',root=document.documentElement,button=document.querySelector('.theme-toggle');
+ let theme='system';
+ try{const stored=localStorage.getItem(key);if(stored==='light'||stored==='dark')theme=stored}catch{}
+ function apply(value){if(value==='system')root.removeAttribute('data-theme');else root.setAttribute('data-theme',value);button.title='主题：'+({system:'跟随系统',light:'浅色',dark:'深色'}[value])+'，点击切换';button.setAttribute('aria-label',button.title)}
+ apply(theme);
+ button.addEventListener('click',()=>{theme=theme==='system'?'light':theme==='light'?'dark':'system';apply(theme);try{localStorage.setItem(key,theme)}catch{}});
+ window.addEventListener('storage',event=>{if(event.key===key){theme=event.newValue==='light'||event.newValue==='dark'?event.newValue:'system';apply(theme)}});
+})();
+
 const cards=[...document.querySelectorAll('.card')],search=document.querySelector('#search');
 let category='全部',view='all',saved=new Set();
 try{const value=JSON.parse(localStorage.getItem('webatlas:saved')||'[]');if(Array.isArray(value))saved=new Set(value);}catch{}

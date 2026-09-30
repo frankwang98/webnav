@@ -59,22 +59,42 @@ header{height:60px;padding:0 3%}.brand strong{font-size:21px}.brand img{width:30
  .card details:not([open]){bottom:15px;left:18px}
  footer{margin-top:26px;padding:16px 0;font-size:11px}
 }
-/* Native controls and the page follow the operating system appearance. */
-:root{color-scheme:light dark}
-@media(prefers-color-scheme:dark){
- :root{--ink:#d7e8dd;--muted:#a0b0a6;--bg:#141b19;--line:#35423b;--accent:#a9cf64}
- .card,.search,.web-search{background:#1d2823}
- .card p{color:#b0c1b5}
- .card-bottom{border-color:var(--line)}
- #categories button[aria-pressed=true],.web-search button{background:#c5dfca;color:#14221a}
- .filters button[aria-pressed=true]{color:#17240e}
- .hero em{color:#eef5e5;background:linear-gradient(transparent 67%,#526837 67%)}
- .badge{background:#2a3930;color:var(--muted)}
- .badge.review{background:#49391f;color:#edce85}
- .badge.internal{background:#283448;color:#b8c9f1}
- .card details{color:#edce85}
- .save{color:#afc0b1}.save[aria-pressed=true]{color:#c3e981}
- .card:hover{border-color:#72866b}
- .skip:focus{background:#1d2823}
- input::placeholder{color:#9cad9f}
+/* Match the personal homepage: neutral surfaces, indigo accents, system/light/dark. */
+:root{
+  color-scheme:light;
+  --ink:#0a0a0a;--muted:#6b6b6b;--bg:#ffffff;--line:#e5e5e7;--accent:#6366f1;
+  --surface:#f6f6f7;--card:#ffffff;--subtle:#f6f6f7;--description:#62626a;
+  --button:#6366f1;--button-text:#ffffff;--selection:#6366f1;--selection-text:#ffffff;
+  --highlight:rgba(99,102,241,.14);--focus:#6366f1;--hover:#818cf8;
 }
+@media(prefers-color-scheme:dark){
+ :root:not([data-theme="light"]){
+  color-scheme:dark;
+  --ink:#ededee;--muted:#a1a1aa;--bg:#0a0a0a;--line:#262626;--accent:#818cf8;
+  --surface:#141416;--card:#141416;--subtle:#202024;--description:#b1b1ba;
+  --button:#818cf8;--button-text:#0a0a0a;--selection:#818cf8;--selection-text:#0a0a0a;
+  --highlight:rgba(129,140,248,.18);--focus:#a5b4fc;--hover:#a5b4fc;
+ }
+}
+html[data-theme="light"]{color-scheme:light;--ink:#0a0a0a;--muted:#6b6b6b;--bg:#ffffff;--line:#e5e5e7;--accent:#6366f1;--surface:#f6f6f7;--card:#ffffff;--subtle:#f6f6f7;--description:#62626a;--button:#6366f1;--button-text:#ffffff;--selection:#6366f1;--selection-text:#ffffff;--highlight:rgba(99,102,241,.14);--focus:#6366f1;--hover:#818cf8}
+html[data-theme="dark"]{color-scheme:dark;--ink:#ededee;--muted:#a1a1aa;--bg:#0a0a0a;--line:#262626;--accent:#818cf8;--surface:#141416;--card:#141416;--subtle:#202024;--description:#b1b1ba;--button:#818cf8;--button-text:#0a0a0a;--selection:#818cf8;--selection-text:#0a0a0a;--highlight:rgba(129,140,248,.18);--focus:#a5b4fc;--hover:#a5b4fc}
+button:focus-visible,a:focus-visible,input:focus-visible{outline-color:var(--focus)}
+.skip:focus,.card,.search,.web-search{background:var(--card)}
+#categories button[aria-pressed=true],.web-search button{background:var(--button);color:var(--button-text)}
+.filters button[aria-pressed=true]{background:var(--selection);border-color:var(--selection);color:var(--selection-text)}
+.hero em{color:var(--ink);background:linear-gradient(transparent 70%,var(--highlight) 70%)}
+.card p{color:var(--description)}.card-bottom{border-color:var(--line)}
+.monogram,.badge{background:var(--subtle);color:var(--ink)}
+.badge.review{background:var(--subtle);color:var(--accent)}.badge.internal{background:var(--subtle);color:var(--accent)}
+.card details{color:var(--accent)}
+.save{color:var(--muted)}.save[aria-pressed=true]{color:var(--accent)}
+.card:hover{border-color:var(--hover)}
+input::placeholder{color:var(--muted)}
+.theme-toggle{border:1px solid var(--line);background:var(--surface);color:var(--ink);width:34px;height:34px;border-radius:8px;font-size:15px;display:inline-flex;align-items:center;justify-content:center;line-height:1;padding:0}
+.theme-toggle:hover{border-color:var(--accent)}
+.theme-toggle .ico-light,.theme-toggle .ico-dark{display:none}
+html[data-theme="light"] .theme-toggle .ico-system{display:none}
+html[data-theme="light"] .theme-toggle .ico-light{display:inline}
+html[data-theme="dark"] .theme-toggle .ico-system{display:none}
+html[data-theme="dark"] .theme-toggle .ico-dark{display:inline}
+.card p.note{color:var(--muted)}
