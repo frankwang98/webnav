@@ -1,0 +1,23 @@
+name: 推荐网址或反馈链接
+description: 少量精选，说明它解决什么问题；异常链接由维护者决定。
+title: '[网址] '
+body:
+  - type: input
+    id: name
+    attributes:
+      label: 网站 / App 名称
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: 官方网址或原有链接
+    validations:
+      required: true
+  - type: textarea
+    id: reason
+    attributes:
+      label: 解决什么问题 / 发现了什么异常？
+      description: 推荐请说明使用场景；纠错请说明访问环境和异常现象。
+    validations:
+      required: true

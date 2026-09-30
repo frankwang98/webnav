@@ -1,2 +1,41 @@
-# webnav
-website navigation
+# WebAtlas · 好用的互联网
+
+工作、学习、数字生活。按用途找到值得反复打开的网站与 App。
+
+**[打开 WebAtlas](https://frankwang98.asia/webnav/)** · [推荐 / 纠错](https://github.com/frankwang98/webnav/issues/new/choose)
+
+- 名称、用途、网址搜索；分类、精选、App 与本地收藏。
+- 24 个原有条目完整保留；检查异常进入“待确认”，最终取舍由维护者决定。
+- 内网入口标注“仅内网”，不从公网探测，不当作失效。
+- 首批只新增四个工具：Obsidian、Bitwarden、LocalSend、DeepL。官方来源记录在条目中。
+- 无前端框架、第三方字体、远程图标或浏览器探测服务；关闭 JavaScript 仍可打开全部网址。
+
+## 如何维护
+
+内容源文件是 `data/links.json`，修改后执行：
+
+```sh
+python3 scripts/build.py
+python3 -m http.server 8000
+```
+
+访问 `http://localhost:8000`。把内容数据与生成的 `index.html`、`data/catalog.json` 一起提交。页面使用相对路径，支持 GitHub Pages 项目子目录；仓库名仍保留 `webnav`。
+
+条目字段：`id`（稳定唯一）、`name`、`url`（原始链接）、`description`、`category`、`kind`（网站/App）、`source`（legacy/curated）、`featured`、`status`、`note`。新增工具填写 `verified_source` 与 `editorial_date`，优先官方入口，避免重复。
+
+## 链接诊断与人工决定
+
+```sh
+python3 scripts/check_links.py
+python3 scripts/build.py
+```
+
+检查结果保存在 `data/health.json`，记录时间、HTTP 状态、跳转终点和原因。HTTP 成功只表示可达，不证明内容质量。超时、403、5xx 等只标记待确认，**不自动删除、替换或更改原 URL**。内网地址和跳转到非公网的目标跳过。
+
+Actions 的 **WebAtlas maintenance** 自动校验数据与构建结果；手动运行可下载新的诊断报告，不自动修改仓库。确认报告后才更新数据与首页。若要人工保留某异常条目，可在对应 health 记录中设置 `status: unchecked` 并在 `detail` 说明决定；下一次自动报告仍可能重新提示。
+
+## 保留与迁移
+
+`legacy-index.html` 是此次整理前的首页快照。原有历史文章、资源和许可证继续保留；新首页不依赖旧版 Hexo 运行库。当前 Pages 发布方式沿用已有配置，本次没有变更仓库名或域名。
+
+原版基于 [WebStack](https://github.com/WebStackPage/WebStackPage.github.io) / [hexo-theme-webstack](https://github.com/HCLonely/hexo-theme-webstack)。

@@ -1,0 +1,36 @@
+name: WebAtlas maintenance
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      check_links:
+        description: 'Check public links and upload a diagnostic report (does not change links)'
+        type: boolean
+        default: true
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: python scripts/build.py
+      - run: node --check atlas.js
+      - name: Check generated files are current
+        run: git diff --exit-code -- index.html data/catalog.json
+      - name: Check public links on request
+        if: github.event_name == 'workflow_dispatch' && inputs.check_links
+        run: python scripts/check_links.py
+      - uses: actions/upload-artifact@v4
+        if: github.event_name == 'workflow_dispatch' && inputs.check_links
+        with:
+          name: link-diagnostics
+          path: data/health.json

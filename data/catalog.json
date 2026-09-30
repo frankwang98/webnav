@@ -1,0 +1,556 @@
+[
+  {
+    "id": "legacy-001",
+    "name": "frankwang98's Blog",
+    "url": "https://frankwang98.top/",
+    "description": "个人博客",
+    "category": "个人主页",
+    "kind": "网站",
+    "source": "legacy",
+    "featured": false,
+    "status": "review",
+    "note": "",
+    "health": {
+      "id": "legacy-001",
+      "checked_at": "2026-09-30T07:21:57.182691+00:00",
+      "status": "review",
+      "code": 502,
+      "detail": "HTTP 502；可能是登录、反爬或区域限制，待人工确认"
+    }
+  },
+  {
+    "id": "legacy-002",
+    "name": "frankwang98's Wiki",
+    "url": "https://frankwang98.top/wiki/",
+    "description": "个人学习成长",
+    "category": "个人主页",
+    "kind": "网站",
+    "source": "legacy",
+    "featured": false,
+    "status": "review",
+    "note": "",
+    "health": {
+      "id": "legacy-002",
+      "checked_at": "2026-09-30T07:21:57.182979+00:00",
+      "status": "review",
+      "code": 502,
+      "detail": "HTTP 502；可能是登录、反爬或区域限制，待人工确认"
+    }
+  },
+  {
+    "id": "legacy-003",
+    "name": "GitHub",
+    "url": "https://github.com/",
+    "description": "托管代码、参与开源、发布个人项目。",
+    "category": "开发与部署",
+    "kind": "网站",
+    "source": "legacy",
+    "featured": true,
+    "status": "reachable",
+    "note": "",
+    "health": {
+      "id": "legacy-003",
+      "checked_at": "2026-09-30T07:21:57.183269+00:00",
+      "status": "reachable",
+      "code": 200,
+      "final_url": "https://github.com/",
+      "detail": "HTTP 可达；不代表内容已人工审查"
+    }
+  },
+  {
+    "id": "legacy-004",
+    "name": "Gitee",
+    "url": "https://gitee.com/",
+    "description": "（国内）面向开源及私有软件项目的托管平台。",
+    "category": "开发与部署",
+    "kind": "网站",
+    "source": "legacy",
+    "featured": false,
+    "status": "reachable",
+    "note": "",
+    "health": {
+      "id": "legacy-004",
+      "checked_at": "2026-09-30T07:21:57.183752+00:00",
+      "status": "reachable",
+      "code": 200,
+      "final_url": "https://gitee.com/",
+      "detail": "HTTP 可达；不代表内容已人工审查"
+    }
+  },
+  {
+    "id": "legacy-005",
+    "name": "OA平台",
+    "url": "http://10.10.10.96/wui/index.html#/main/portal/portal-2-1?menuIds=0,2&menuPathIds=0,2&_key=kzw12x",
+    "description": "OA办公",
+    "category": "工作台",
+    "kind": "网站",
+    "source": "legacy",
+    "featured": false,
+    "status": "internal",
+    "note": "",
+    "health": {
+      "id": "legacy-005",
+      "checked_at": "2026-09-30T07:21:57.184732+00:00",
+      "status": "internal",
+      "detail": "仅内网可用；不从公共网络探测"
+    }
+  },
+  {
+    "id": "legacy-006",
+    "name": "Gitlab",
+    "url": "http://10.10.10.100/",
+    "description": "代码管理",
+    "category": "工作台",
+    "kind": "网站",
+    "source": "legacy",
+    "featured": false,
+    "status": "internal",
+    "note": "",
+    "health": {
+      "id": "legacy-006",
+      "checked_at": "2026-09-30T07:21:57.185155+00:00",
+      "status": "internal",
+      "detail": "仅内网可用；不从公共网络探测"
+    }
+  },
+  {
+    "id": "legacy-007",
+    "name": "禅道",
+    "url": "http://10.10.10.100:8081/my/",
+    "description": "Bug管理",
+    "category": "工作台",
+    "kind": "网站",
+    "source": "legacy",
+    "featured": false,
+    "status": "internal",
+    "note": "",
+    "health": {
+      "id": "legacy-007",
+      "checked_at": "2026-09-30T07:21:57.185609+00:00",
+      "status": "internal",
+      "detail": "仅内网可用；不从公共网络探测"
+    }
+  },
+  {
+    "id": "legacy-008",
+    "name": "pve虚拟机",
+    "url": "https://10.10.10.124:8006/",
+    "description": "虚拟机代码运行",
+    "category": "工作台",
+    "kind": "网站",
+    "source": "legacy",
+    "featured": false,
+    "status": "internal",
+    "note": "",
+    "health": {
+      "id": "legacy-008",
+      "checked_at": "2026-09-30T07:21:57.185739+00:00",
+      "status": "internal",
+      "detail": "仅内网可用；不从公共网络探测"
+    }
+  },
+  {
+    "id": "legacy-009",
+    "name": "牛客网",
+    "url": "https://www.nowcoder.com/",
+    "description": "刷题面试。",
+    "category": "学习社区",
+    "kind": "网站",
+    "source": "legacy",
+    "featured": false,
+    "status": "reachable",
+    "note": "",
+    "health": {
+      "id": "legacy-009",
+      "checked_at": "2026-09-30T07:21:57.185800+00:00",
+      "status": "reachable",
+      "code": 200,
+      "final_url": "https://www.nowcoder.com/",
+      "detail": "HTTP 可达；不代表内容已人工审查"
+    }
+  },
+  {
+    "id": "legacy-010",
+    "name": "力扣",
+    "url": "https://leetcode.cn/",
+    "description": "刷题。",
+    "category": "学习社区",
+    "kind": "网站",
+    "source": "legacy",
+    "featured": false,
+    "status": "reachable",
+    "note": "",
+    "health": {
+      "id": "legacy-010",
+      "checked_at": "2026-09-30T07:21:57.186257+00:00",
+      "status": "reachable",
+      "code": 200,
+      "final_url": "https://leetcode.cn/",
+      "detail": "HTTP 可达；不代表内容已人工审查"
+    }
+  },
+  {
+    "id": "legacy-011",
+    "name": "CSDN",
+    "url": "https://www.csdn.net/",
+    "description": "公共IT技术博客。",
+    "category": "学习社区",
+    "kind": "网站",
+    "source": "legacy",
+    "featured": false,
+    "status": "review",
+    "note": "",
+    "health": {
+      "id": "legacy-011",
+      "checked_at": "2026-09-30T07:21:57.186300+00:00",
+      "status": "review",
+      "code": 521,
+      "detail": "HTTP 521；可能是登录、反爬或区域限制，待人工确认"
+    }
+  },
+  {
+    "id": "legacy-012",
+    "name": "Bilibili",
+    "url": "https://www.bilibili.com/",
+    "description": "公共知识长视频。",
+    "category": "学习社区",
+    "kind": "网站",
+    "source": "legacy",
+    "featured": false,
+    "status": "reachable",
+    "note": "",
+    "health": {
+      "id": "legacy-012",
+      "checked_at": "2026-09-30T07:21:57.186631+00:00",
+      "status": "reachable",
+      "code": 200,
+      "final_url": "https://www.bilibili.com/",
+      "detail": "HTTP 可达；不代表内容已人工审查"
+    }
+  },
+  {
+    "id": "legacy-013",
+    "name": "Google",
+    "url": "https://www.google.com/",
+    "description": "搜索网页、资料和官方文档。",
+    "category": "常用工具",
+    "kind": "网站",
+    "source": "legacy",
+    "featured": true,
+    "status": "reachable",
+    "note": "",
+    "health": {
+      "id": "legacy-013",
+      "checked_at": "2026-09-30T07:22:02.264095+00:00",
+      "status": "reachable",
+      "code": 200,
+      "final_url": "https://www.google.com/",
+      "detail": "HTTP 可达；不代表内容已人工审查"
+    }
+  },
+  {
+    "id": "legacy-014",
+    "name": "Yandex",
+    "url": "https://yandex.com/",
+    "description": "Yandex。",
+    "category": "常用工具",
+    "kind": "网站",
+    "source": "legacy",
+    "featured": false,
+    "status": "reachable",
+    "note": "",
+    "health": {
+      "id": "legacy-014",
+      "checked_at": "2026-09-30T07:22:02.264202+00:00",
+      "status": "reachable",
+      "code": 200,
+      "final_url": "https://yandex.com/",
+      "detail": "HTTP 可达；不代表内容已人工审查"
+    }
+  },
+  {
+    "id": "legacy-015",
+    "name": "chatbot",
+    "url": "https://chatbot.theb.ai/#/chat/1002",
+    "description": "AI知识机器人。",
+    "category": "常用工具",
+    "kind": "网站",
+    "source": "legacy",
+    "featured": false,
+    "status": "review",
+    "note": "",
+    "health": {
+      "id": "legacy-015",
+      "checked_at": "2026-09-30T07:22:03.842500+00:00",
+      "status": "review",
+      "code": 502,
+      "detail": "HTTP 502；可能是登录、反爬或区域限制，待人工确认"
+    }
+  },
+  {
+    "id": "legacy-016",
+    "name": "ProcessOn",
+    "url": "https://www.processon.com/",
+    "description": "流程图制作。",
+    "category": "常用工具",
+    "kind": "网站",
+    "source": "legacy",
+    "featured": false,
+    "status": "reachable",
+    "note": "",
+    "health": {
+      "id": "legacy-016",
+      "checked_at": "2026-09-30T07:22:04.988207+00:00",
+      "status": "reachable",
+      "code": 200,
+      "final_url": "https://www.processon.com/",
+      "detail": "HTTP 可达；不代表内容已人工审查"
+    }
+  },
+  {
+    "id": "legacy-017",
+    "name": "netcut",
+    "url": "https://netcut.cn/",
+    "description": "网络粘贴板。",
+    "category": "常用工具",
+    "kind": "网站",
+    "source": "legacy",
+    "featured": false,
+    "status": "reachable",
+    "note": "",
+    "health": {
+      "id": "legacy-017",
+      "checked_at": "2026-09-30T07:22:05.191492+00:00",
+      "status": "reachable",
+      "code": 200,
+      "final_url": "https://webnote.cc/",
+      "detail": "HTTP 可达；不代表内容已人工审查"
+    }
+  },
+  {
+    "id": "legacy-018",
+    "name": "字符画",
+    "url": "http://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20",
+    "description": "字符画制作。",
+    "category": "常用工具",
+    "kind": "网站",
+    "source": "legacy",
+    "featured": false,
+    "status": "reachable",
+    "note": "",
+    "health": {
+      "id": "legacy-018",
+      "checked_at": "2026-09-30T07:22:06.206538+00:00",
+      "status": "reachable",
+      "code": 200,
+      "final_url": "http://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20",
+      "detail": "HTTP 可达；不代表内容已人工审查"
+    }
+  },
+  {
+    "id": "legacy-019",
+    "name": "极简壁纸",
+    "url": "https://bz.zzzmh.cn/index",
+    "description": "壁纸。",
+    "category": "常用工具",
+    "kind": "网站",
+    "source": "legacy",
+    "featured": false,
+    "status": "reachable",
+    "note": "",
+    "health": {
+      "id": "legacy-019",
+      "checked_at": "2026-09-30T07:22:08.406821+00:00",
+      "status": "reachable",
+      "code": 200,
+      "final_url": "https://bz.zzzmh.cn/index",
+      "detail": "HTTP 可达；不代表内容已人工审查"
+    }
+  },
+  {
+    "id": "legacy-020",
+    "name": "墙纸推荐",
+    "url": "https://wall.alphacoders.com/",
+    "description": "壁纸。",
+    "category": "常用工具",
+    "kind": "网站",
+    "source": "legacy",
+    "featured": false,
+    "status": "reachable",
+    "note": "",
+    "health": {
+      "id": "legacy-020",
+      "checked_at": "2026-09-30T07:22:08.732742+00:00",
+      "status": "reachable",
+      "code": 200,
+      "final_url": "https://wall.alphacoders.com/",
+      "detail": "HTTP 可达；不代表内容已人工审查"
+    }
+  },
+  {
+    "id": "legacy-021",
+    "name": "一元机场",
+    "url": "https://xn--4gq62f52gdss.com/#/login",
+    "description": "机场。",
+    "category": "常用工具",
+    "kind": "网站",
+    "source": "legacy",
+    "featured": false,
+    "status": "review",
+    "note": "",
+    "health": {
+      "id": "legacy-021",
+      "checked_at": "2026-09-30T07:22:08.882979+00:00",
+      "status": "review",
+      "code": 403,
+      "detail": "HTTP 403；可能是登录、反爬或区域限制，待人工确认"
+    }
+  },
+  {
+    "id": "legacy-022",
+    "name": "多元机场",
+    "url": "https://ca.bitznetuk.com/#/dashboard",
+    "description": "机场。",
+    "category": "常用工具",
+    "kind": "网站",
+    "source": "legacy",
+    "featured": false,
+    "status": "review",
+    "note": "",
+    "health": {
+      "id": "legacy-022",
+      "checked_at": "2026-09-30T07:22:09.093441+00:00",
+      "status": "review",
+      "code": 301,
+      "detail": "HTTP 301；可能是登录、反爬或区域限制，待人工确认"
+    }
+  },
+  {
+    "id": "legacy-023",
+    "name": "云洞机场",
+    "url": "https://hello-yundong.com",
+    "description": "机场。",
+    "category": "常用工具",
+    "kind": "网站",
+    "source": "legacy",
+    "featured": false,
+    "status": "reachable",
+    "note": "",
+    "health": {
+      "id": "legacy-023",
+      "checked_at": "2026-09-30T07:22:11.255933+00:00",
+      "status": "reachable",
+      "code": 200,
+      "final_url": "https://hello-yundong.com",
+      "detail": "HTTP 可达；不代表内容已人工审查"
+    }
+  },
+  {
+    "id": "legacy-024",
+    "name": "SMS接码",
+    "url": "https://sms-activate.org/",
+    "description": "接码。",
+    "category": "常用工具",
+    "kind": "网站",
+    "source": "legacy",
+    "featured": false,
+    "status": "reachable",
+    "note": "",
+    "health": {
+      "id": "legacy-024",
+      "checked_at": "2026-09-30T07:22:11.298508+00:00",
+      "status": "reachable",
+      "code": 200,
+      "final_url": "https://sms-activate.org/",
+      "detail": "HTTP 可达；不代表内容已人工审查"
+    }
+  },
+  {
+    "id": "obsidian",
+    "name": "Obsidian",
+    "url": "https://obsidian.md/",
+    "description": "把笔记保存在本地 Markdown 文件中，建立个人知识库。",
+    "category": "知识与写作",
+    "kind": "App",
+    "source": "curated",
+    "featured": true,
+    "status": "reachable",
+    "note": "本地笔记；同步方案需自行选择。",
+    "verified_source": "https://obsidian.md/",
+    "editorial_date": "2026-09-30",
+    "health": {
+      "id": "obsidian",
+      "checked_at": "2026-09-30T07:22:11.696530+00:00",
+      "status": "reachable",
+      "code": 200,
+      "final_url": "https://obsidian.md/",
+      "detail": "HTTP 可达；不代表内容已人工审查"
+    }
+  },
+  {
+    "id": "bitwarden",
+    "name": "Bitwarden",
+    "url": "https://bitwarden.com/",
+    "description": "统一管理密码，减少重复密码和账号找回负担。",
+    "category": "数字生活",
+    "kind": "App",
+    "source": "curated",
+    "featured": true,
+    "status": "reachable",
+    "note": "密码管理；请保管好主密码与恢复资料。",
+    "verified_source": "https://bitwarden.com/",
+    "editorial_date": "2026-09-30",
+    "health": {
+      "id": "bitwarden",
+      "checked_at": "2026-09-30T07:22:12.981701+00:00",
+      "status": "reachable",
+      "code": 200,
+      "final_url": "https://bitwarden.com/",
+      "detail": "HTTP 可达；不代表内容已人工审查"
+    }
+  },
+  {
+    "id": "localsend",
+    "name": "LocalSend",
+    "url": "https://localsend.org/",
+    "description": "在同一局域网里的电脑和手机之间传文件。",
+    "category": "数字生活",
+    "kind": "App",
+    "source": "curated",
+    "featured": true,
+    "status": "reachable",
+    "note": "跨平台传输；设备需要互相可达。",
+    "verified_source": "https://localsend.org/",
+    "editorial_date": "2026-09-30",
+    "health": {
+      "id": "localsend",
+      "checked_at": "2026-09-30T07:22:13.936414+00:00",
+      "status": "reachable",
+      "code": 200,
+      "final_url": "https://localsend.org/",
+      "detail": "HTTP 可达；不代表内容已人工审查"
+    }
+  },
+  {
+    "id": "deepl",
+    "name": "DeepL",
+    "url": "https://www.deepl.com/en/translate",
+    "description": "翻译外文资料，辅助阅读与写作。",
+    "category": "知识与写作",
+    "kind": "网站",
+    "source": "curated",
+    "featured": true,
+    "status": "reachable",
+    "note": "关键术语与重要内容仍需人工复核。",
+    "verified_source": "https://www.deepl.com/en/translate",
+    "editorial_date": "2026-09-30",
+    "health": {
+      "id": "deepl",
+      "checked_at": "2026-09-30T07:22:15.822762+00:00",
+      "status": "reachable",
+      "code": 200,
+      "final_url": "https://www.deepl.com/en/translate",
+      "detail": "HTTP 可达；不代表内容已人工审查"
+    }
+  }
+]
