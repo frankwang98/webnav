@@ -9,8 +9,8 @@
 <title>WebAtlas · 好用的互联网</title>
 <meta name="description" content="常用网站、搜索和收藏，在一个清爽的起点快速打开。">
 <link rel="icon" href="atlas.svg" type="image/svg+xml">
-<link rel="stylesheet" href="atlas.css?v=20261001-newtab1">
-<script src="atlas.js?v=20261001-newtab1" defer></script>
+<link rel="stylesheet" href="atlas.css?v=20261001-search2">
+<script src="atlas.js?v=20261001-search2" defer></script>
 </head>
 <body>
 <a class="skip" href="#directory">跳到网址目录</a>
@@ -26,15 +26,14 @@
   <section class="hero" aria-labelledby="hero-title">
     <span class="hero-eyebrow" id="today-label">YOUR INTERNET, IN ONE PLACE</span>
     <h1 id="hero-title">今天，<em>想打开哪里？</em></h1>
-    <p>搜索、收藏、发现好用的网站，从这里开始。</p>
+    <p>先搜索世界，再探索你收藏的好网站。</p>
     <div class="search-shell">
-      <label class="search" for="search"><span class="search-icon" aria-hidden="true">⌕</span><span class="sr-only">搜索本站网址</span><input id="search" type="search" placeholder="搜索网站、工具或关键词…" autocomplete="off" aria-controls="directory"><kbd>/</kbd></label>
-      <div class="search-suggestions" id="search-results" aria-label="搜索结果" hidden></div>
+      <div class="search-modes" aria-label="搜索范围"><button type="button" data-search-mode="google" aria-pressed="true">Google 搜索</button><button type="button" data-search-mode="site" aria-pressed="false">站内网址</button></div>
       <form class="web-search" action="https://www.google.com/search" method="get" target="_blank" rel="noopener noreferrer">
-        <label for="web-query">没有找到？用 Google 搜索</label>
-        <input id="web-query" name="q" type="search" placeholder="输入关键词" required autocomplete="off">
-        <button type="submit">搜索 ↗</button>
+        <div class="search"><span class="search-icon" aria-hidden="true">⌕</span><label class="sr-only" for="web-query">使用 Google 搜索网页</label><input id="web-query" name="q" type="search" placeholder="搜索你感兴趣的一切…" required autocomplete="off"><button class="search-submit" type="submit">Google 搜索 <span aria-hidden="true">↗</span></button></div>
       </form>
+      <div class="site-search" hidden><label class="search" for="search"><span class="search-icon" aria-hidden="true">⌕</span><span class="sr-only">搜索本站网址</span><input id="search" type="search" placeholder="搜索网站、工具或关键词…" autocomplete="off" aria-controls="directory"><kbd>/</kbd></label><div class="search-suggestions" id="search-results" aria-label="搜索结果" hidden></div></div>
+      <div class="search-hint" id="search-hint">按 / 快速搜索 · 回车打开 Google 搜索结果</div>
     </div>
   </section>
   <section class="section" aria-labelledby="quick-title">

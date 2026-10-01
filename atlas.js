@@ -1,6 +1,10 @@
 'use strict';
 const root=document.documentElement;
 const search=document.querySelector('#search');
+const webQuery=document.querySelector('#web-query');
+const siteSearch=document.querySelector('.site-search');
+const webSearch=document.querySelector('.web-search');
+let searchMode='google';
 const cards=[...document.querySelectorAll('.card')];
 const suggestions=document.querySelector('#search-results');
 const quickGrid=document.querySelector('#quick-grid');
@@ -61,7 +65,7 @@ function renderSuggestions(){
   const matches=cards.filter(card=>card.dataset.search.includes(query)).slice(0,6);
   if(!matches.length){
     const empty=document.createElement('div');empty.className='suggestion-empty';
-    empty.textContent='没有匹配的网址，可试试右侧的 Google 搜索。';suggestions.append(empty);
+    empty.textContent='没有匹配的网址，切换到 Google 搜索试试。';suggestions.append(empty);
   }
   for(const card of matches){
     const link=document.createElement('a'),name=document.createElement('span'),group=document.createElement('small');
@@ -96,6 +100,15 @@ function render(){
 }
 search.addEventListener('input',()=>{render();renderSuggestions();});
 search.addEventListener('focus',renderSuggestions);
+document.querySelector('.search-modes').addEventListener('click',event=>{
+  const button=event.target.closest('[data-search-mode]');if(!button)return;
+  searchMode=button.dataset.searchMode;
+  webSearch.hidden=searchMode!=='google';siteSearch.hidden=searchMode!=='site';
+  document.querySelectorAll('[data-search-mode]').forEach(item=>item.setAttribute('aria-pressed',String(item===button)));
+  document.querySelector('#search-hint').textContent=searchMode==='google'?'按 / 快速搜索 · 回车打开 Google 搜索结果':'输入关键词筛选本站网址 · 按 / 快速定位';
+  if(searchMode==='google'){search.value='';suggestions.hidden=true;render();webQuery.focus();}
+  else search.focus();
+});
 document.addEventListener('click',event=>{
   if(!event.target.closest('.search-shell'))suggestions.hidden=true;
 });
@@ -116,7 +129,7 @@ document.querySelector('.grid').addEventListener('click',event=>{
 });
 document.addEventListener('keydown',event=>{
   if(event.key==='/'&&!['INPUT','TEXTAREA','SELECT'].includes(document.activeElement.tagName)){
-    event.preventDefault();search.focus();
+    event.preventDefault();(searchMode==='google'?webQuery:search).focus();
   }
   if(event.key==='Escape'&&document.activeElement===search){
     search.value='';suggestions.hidden=true;render();
@@ -128,4 +141,3 @@ window.addEventListener('storage',event=>{
   render();renderQuick();
 });
 render();renderQuick();
-
