@@ -9,8 +9,8 @@
 <title>WebAtlas · 个人互联网启动页</title>
 <meta name="description" content="搜索、常用入口与个人项目，在一个轻盈的起点快速打开。">
 <link rel="icon" href="atlas.svg" type="image/svg+xml">
-<link rel="stylesheet" href="atlas.css?v=20261001-discover">
-<script src="atlas.js?v=20261001-discover" defer></script>
+<link rel="stylesheet" href="atlas.css?v=20261001-personal">
+<script src="atlas.js?v=20261001-personal" defer></script>
 </head>
 <body>
 <a class="skip" href="#directory">跳到网址目录</a>
@@ -30,7 +30,7 @@
     <form class="launcher" id="launcher" role="search">
       <span class="search-icon" aria-hidden="true">⌕</span>
       <label class="sr-only" for="web-query">输入网址或搜索内容</label>
-      <input id="web-query" type="text" placeholder="搜索 Google，或输入网址…" autocomplete="off" autofocus>
+      <input id="web-query" type="text" placeholder="搜索 Google，或输入网址…" autocomplete="off">
       <kbd>/</kbd>
       <button type="submit" aria-label="打开或搜索">↗</button>
     </form>
@@ -59,22 +59,47 @@
     </div>
     <div class="discovery-item">
       <div class="discovery-heading"><span class="discovery-label">随机探索 · 今天的网站</span><button id="explore-next" class="explore-next" type="button" hidden>换一个 ↻</button></div>
-      <a id="explore-link" class="project-card explore-card" href="https://www.wikipedia.org/" target="_blank" rel="noopener noreferrer">
-        <span id="explore-icon" class="quick-icon"><img src="https://www.google.com/s2/favicons?domain_url=https%3A%2F%2Fwww.wikipedia.org%2F&amp;sz=128" alt="" width="28" height="28" loading="lazy"></span>
-        <span class="project-copy" aria-live="polite"><strong id="explore-name">Wikipedia</strong><small id="explore-description">查概念、找背景，再沿参考文献继续探索。</small></span><span class="project-arrow" aria-hidden="true">↗</span>
+      <a id="explore-link" class="project-card explore-card" href="https://neal.fun/" target="_blank" rel="noopener noreferrer">
+        <span id="explore-icon" class="quick-icon"><img src="https://www.google.com/s2/favicons?domain_url=neal.fun&amp;sz=128" alt="" width="28" height="28" loading="lazy"></span>
+        <span class="project-copy" aria-live="polite"><strong id="explore-name">Neal.fun</strong><small id="explore-description">创意小游戏与互动实验。</small></span><span class="project-arrow" aria-hidden="true">↗</span>
       </a>
     </div>
     </div>
   </section>
+  <script id="discovery-data" type="application/json">[{"name": "Neal.fun", "url": "https://neal.fun/", "description": "创意小游戏与互动实验。"}, {"name": "Radio Garden", "url": "https://radio.garden/", "description": "转动地球，收听世界各地的电台。"}, {"name": "Nicky Case", "url": "https://ncase.me/", "description": "通过互动故事和模拟探索社会与复杂系统。"}, {"name": "Exercism", "url": "https://exercism.org/", "description": "通过练习和社区指导学习编程语言。"}, {"name": "LOOPY", "url": "https://ncase.me/loopy/", "description": "画出系统，观察因果关系如何循环。"}, {"name": "The Evolution of Trust", "url": "https://ncase.me/trust/", "description": "用小游戏理解合作、信任与博弈。"}]</script>
   <section id="directory" class="section directory" aria-labelledby="section-title">
-    <div class="section-heading"><div><span class="eyebrow">EXPLORE</span><h2 id="section-title">网址目录</h2><p>需要时再展开探索，不打扰第一眼体验。</p></div><span class="section-meta" id="result-count" aria-live="polite">36 个条目</span></div>
+    <div class="local-tools">
+      <button id="add-link" type="button">＋ 添加网址</button>
+      <button id="export-links" type="button">导出我的数据</button>
+      <button id="import-trigger" type="button">导入</button><input id="import-links" type="file" accept=".json,application/json" hidden>
+      <span>默认目录＋我的网址 · 数据保存在此浏览器</span>
+    </div>
+    <p id="local-message" role="status" hidden></p>
+    <dialog id="link-dialog">
+      <form id="link-form">
+        <h2 id="link-form-title">添加我的网址</h2>
+        <label>名称<input name="name" required maxlength="80"></label>
+        <label>网址<input name="url" required placeholder="https://example.com" maxlength="2048"></label>
+        <label>分类<input name="category" required value="我的网址" maxlength="40" list="category-options"></label>
+        <datalist id="category-options"></datalist>
+        <label>简介<input name="description" maxlength="300"></label>
+        <p id="form-error" role="alert"></p>
+        <div><button id="cancel-link" type="button">取消</button><button type="submit">保存到本地</button></div>
+      </form>
+    </dialog>
+    <div class="section-heading"><div><span class="eyebrow">EXPLORE</span><h2 id="section-title">网址目录</h2><p>需要时再展开探索，不打扰第一眼体验。</p></div><span class="section-meta" id="result-count" aria-live="polite">41 个条目</span></div>
     <label class="directory-search" for="search"><span aria-hidden="true">⌕</span><span class="sr-only">搜索本站网址</span><input id="search" type="search" placeholder="搜索网站、工具或关键词…" autocomplete="off" aria-controls="directory"><kbd>/</kbd></label>
     <div class="search-suggestions" id="search-results" aria-label="搜索结果" hidden></div>
-    <div id="categories" class="categories" aria-label="网址分类"><button type="button" data-category="全部" aria-pressed="true">全部 <span>36</span></button><button type="button" data-category="我的项目">我的项目 <span>7</span></button><button type="button" data-category="开发与部署">开发与部署 <span>3</span></button><button type="button" data-category="工作台">工作台 <span>4</span></button><button type="button" data-category="学习社区">学习社区 <span>3</span></button><button type="button" data-category="常用工具">常用工具 <span>9</span></button><button type="button" data-category="知识与写作">知识与写作 <span>5</span></button><button type="button" data-category="数字生活">数字生活 <span>2</span></button><button type="button" data-category="视频与社区">视频与社区 <span>3</span></button></div>
+    <div id="categories" class="categories" aria-label="网址分类"><button type="button" data-category="全部" aria-pressed="true">全部 <span>41</span></button><button type="button" data-category="公共服务">公共服务 <span>1</span></button><button type="button" data-category="AI 工具">AI 工具 <span>4</span></button><button type="button" data-category="我的项目">我的项目 <span>7</span></button><button type="button" data-category="开发与部署">开发与部署 <span>3</span></button><button type="button" data-category="工作台">工作台 <span>4</span></button><button type="button" data-category="学习社区">学习社区 <span>3</span></button><button type="button" data-category="常用工具">常用工具 <span>9</span></button><button type="button" data-category="知识与写作">知识与写作 <span>5</span></button><button type="button" data-category="数字生活">数字生活 <span>2</span></button><button type="button" data-category="视频与社区">视频与社区 <span>3</span></button></div>
     <div class="filters" aria-label="浏览方式"><button type="button" data-view="all" aria-pressed="true">全部</button><button type="button" data-view="featured">精选</button><button type="button" data-view="apps">App</button><button type="button" data-view="saved">我的收藏</button><button type="button" data-view="review">待确认 · 0</button></div>
     <p class="view-note" id="view-note" hidden>收藏保存在当前浏览器中。</p>
     <noscript><p>未启用 JavaScript：仍可浏览和打开下面的全部网址。</p></noscript>
-    <div class="grid"><article class="card" data-id="my-personal-home" data-category="我的项目" data-kind="网站" data-status="reachable" data-featured="false" data-search="个人主页 项目、知识与文章的统一入口。 我的项目 https://frankwang98.asia/"><div class="card-top"><span class="monogram">个</span><span class="badge reachable" title="">HTTP 可达</span><button class="save" type="button" aria-label="收藏 个人主页" aria-pressed="false">☆</button></div><a class="destination" title="个人主页" href="https://frankwang98.asia/" target="_blank" rel="noopener noreferrer"><h3>个人主页 <span>↗</span></h3></a><p>项目、知识与文章的统一入口。</p><div class="card-bottom"><span>我的项目 · 网站</span><span>个人项目</span></div></article>
+    <div class="grid"><article class="card" data-id="america-gov" data-category="公共服务" data-kind="网站" data-status="unchecked" data-featured="true" data-search="america.gov 美国政府信息与公共服务查询入口。 公共服务 https://america.gov/"><div class="card-top"><span class="monogram">A</span><span class="badge unchecked" title="">未探测</span><button class="save" type="button" aria-label="收藏 America.gov" aria-pressed="false">☆</button></div><a class="destination" title="America.gov" href="https://america.gov/" target="_blank" rel="noopener noreferrer"><h3>America.gov <span>↗</span></h3></a><p>美国政府信息与公共服务查询入口。</p><div class="card-bottom"><span>公共服务 · 网站</span><span>本次精选</span></div></article>
+<article class="card" data-id="chatgpt" data-category="AI 工具" data-kind="网站" data-status="unchecked" data-featured="true" data-search="chatgpt 对话、写作、编程与资料分析。 ai 工具 https://chatgpt.com/"><div class="card-top"><span class="monogram">C</span><span class="badge unchecked" title="">未探测</span><button class="save" type="button" aria-label="收藏 ChatGPT" aria-pressed="false">☆</button></div><a class="destination" title="ChatGPT" href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer"><h3>ChatGPT <span>↗</span></h3></a><p>对话、写作、编程与资料分析。</p><div class="card-bottom"><span>AI 工具 · 网站</span><span>本次精选</span></div></article>
+<article class="card" data-id="claude" data-category="AI 工具" data-kind="网站" data-status="unchecked" data-featured="true" data-search="claude anthropic 的 ai 助手，用于写作、阅读与编程。 ai 工具 https://claude.ai/"><div class="card-top"><span class="monogram">C</span><span class="badge unchecked" title="">未探测</span><button class="save" type="button" aria-label="收藏 Claude" aria-pressed="false">☆</button></div><a class="destination" title="Claude" href="https://claude.ai/" target="_blank" rel="noopener noreferrer"><h3>Claude <span>↗</span></h3></a><p>Anthropic 的 AI 助手，用于写作、阅读与编程。</p><div class="card-bottom"><span>AI 工具 · 网站</span><span>本次精选</span></div></article>
+<article class="card" data-id="grok" data-category="AI 工具" data-kind="网站" data-status="unchecked" data-featured="true" data-search="grok xai 的对话与创作助手。 ai 工具 https://grok.com/"><div class="card-top"><span class="monogram">G</span><span class="badge unchecked" title="">未探测</span><button class="save" type="button" aria-label="收藏 Grok" aria-pressed="false">☆</button></div><a class="destination" title="Grok" href="https://grok.com/" target="_blank" rel="noopener noreferrer"><h3>Grok <span>↗</span></h3></a><p>xAI 的对话与创作助手。</p><div class="card-bottom"><span>AI 工具 · 网站</span><span>本次精选</span></div></article>
+<article class="card" data-id="gemini" data-category="AI 工具" data-kind="网站" data-status="unchecked" data-featured="true" data-search="gemini google 的 ai 助手，用于学习与创作。 ai 工具 https://gemini.google.com/"><div class="card-top"><span class="monogram">G</span><span class="badge unchecked" title="">未探测</span><button class="save" type="button" aria-label="收藏 Gemini" aria-pressed="false">☆</button></div><a class="destination" title="Gemini" href="https://gemini.google.com/" target="_blank" rel="noopener noreferrer"><h3>Gemini <span>↗</span></h3></a><p>Google 的 AI 助手，用于学习与创作。</p><div class="card-bottom"><span>AI 工具 · 网站</span><span>本次精选</span></div></article>
+<article class="card" data-id="my-personal-home" data-category="我的项目" data-kind="网站" data-status="reachable" data-featured="false" data-search="个人主页 项目、知识与文章的统一入口。 我的项目 https://frankwang98.asia/"><div class="card-top"><span class="monogram">个</span><span class="badge reachable" title="">HTTP 可达</span><button class="save" type="button" aria-label="收藏 个人主页" aria-pressed="false">☆</button></div><a class="destination" title="个人主页" href="https://frankwang98.asia/" target="_blank" rel="noopener noreferrer"><h3>个人主页 <span>↗</span></h3></a><p>项目、知识与文章的统一入口。</p><div class="card-bottom"><span>我的项目 · 网站</span><span>个人项目</span></div></article>
 <article class="card" data-id="my-modernlife101" data-category="我的项目" data-kind="网站" data-status="reachable" data-featured="false" data-search="modernlife101 现代世界生存与探索指南，随机读懂一个生活问题。 我的项目 https://frankwang98.asia/modernlife101/"><div class="card-top"><span class="monogram">M</span><span class="badge reachable" title="">HTTP 可达</span><button class="save" type="button" aria-label="收藏 ModernLife101" aria-pressed="false">☆</button></div><a class="destination" title="ModernLife101" href="https://frankwang98.asia/ModernLife101/" target="_blank" rel="noopener noreferrer"><h3>ModernLife101 <span>↗</span></h3></a><p>现代世界生存与探索指南，随机读懂一个生活问题。</p><div class="card-bottom"><span>我的项目 · 网站</span><span>个人项目</span></div></article>
 <article class="card" data-id="my-awesome-hub" data-category="我的项目" data-kind="网站" data-status="reachable" data-featured="false" data-search="awesome hub c++、ros2、自动驾驶与机器人技术知识库。 我的项目 https://frankwang98.asia/awesome_hub/"><div class="card-top"><span class="monogram">A</span><span class="badge reachable" title="">HTTP 可达</span><button class="save" type="button" aria-label="收藏 Awesome Hub" aria-pressed="false">☆</button></div><a class="destination" title="Awesome Hub" href="https://frankwang98.asia/awesome_hub/" target="_blank" rel="noopener noreferrer"><h3>Awesome Hub <span>↗</span></h3></a><p>C++、ROS2、自动驾驶与机器人技术知识库。</p><div class="card-bottom"><span>我的项目 · 网站</span><span>个人项目</span></div></article>
 <article class="card" data-id="my-education-hub" data-category="我的项目" data-kind="网站" data-status="reachable" data-featured="false" data-search="education hub 基础知识、通识教育与互动练习。 我的项目 https://frankwang98.asia/education_hub/"><div class="card-top"><span class="monogram">E</span><span class="badge reachable" title="">HTTP 可达</span><button class="save" type="button" aria-label="收藏 Education Hub" aria-pressed="false">☆</button></div><a class="destination" title="Education Hub" href="https://frankwang98.asia/education_hub/" target="_blank" rel="noopener noreferrer"><h3>Education Hub <span>↗</span></h3></a><p>基础知识、通识教育与互动练习。</p><div class="card-bottom"><span>我的项目 · 网站</span><span>个人项目</span></div></article>

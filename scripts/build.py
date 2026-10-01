@@ -22,7 +22,11 @@ quick_defaults=[
 ]
 def favicon(url): return 'https://www.google.com/s2/favicons?domain_url='+urllib.parse.quote(url,safe='')+'&sz=128'
 quicks='\n'.join(f'<a class="quick-link" href="{e(url)}" target="_blank" rel="noopener noreferrer" title="{e(name)}"><span class="quick-icon"><img src="{e(favicon(url))}" alt="" width="28" height="28" loading="lazy" referrerpolicy="no-referrer" onerror="this.hidden=true;this.nextElementSibling.style.display=\'grid\'"><span class="icon-fallback">{e(name[0].upper())}</span></span><span class="quick-name">{e(name)}</span></a>' for name,url in quick_defaults)
-template=(p/'index.template.html').read_text();template=template.replace('{{CARDS}}','\n'.join(cards)).replace('{{QUICKS}}',quicks).replace('{{CATEGORIES}}',nav).replace('{{COUNT}}',str(len(links))).replace('{{REVIEW}}',str(sum(x['status']=='review' for x in links)))
+discovery=json.loads((p/'data/discovery.json').read_text())
+assert all(x['url'].startswith('https://') for x in discovery)
+assert not {x['url'] for x in discovery}&{x['url'] for x in links}
+discovery_json=json.dumps(discovery,ensure_ascii=False).replace('<','\\u003c')
+template=(p/'index.template.html').read_text();template=template.replace('{{DISCOVERY}}',discovery_json).replace('{{CARDS}}','\n'.join(cards)).replace('{{QUICKS}}',quicks).replace('{{CATEGORIES}}',nav).replace('{{COUNT}}',str(len(links))).replace('{{REVIEW}}',str(sum(x['status']=='review' for x in links)))
 (p/'index.html').write_text(template)
 (p/'data/catalog.json').write_text(json.dumps(links,ensure_ascii=False,indent=2)+'\n')
 print(f'Built {len(links)} cards, legacy entries retained according to owner decisions; {sum(x["status"]=="review" for x in links)} need review.')

@@ -9,8 +9,8 @@
 <title>WebAtlas · 个人互联网启动页</title>
 <meta name="description" content="搜索、常用入口与个人项目，在一个轻盈的起点快速打开。">
 <link rel="icon" href="atlas.svg" type="image/svg+xml">
-<link rel="stylesheet" href="atlas.css?v=20261001-discover">
-<script src="atlas.js?v=20261001-discover" defer></script>
+<link rel="stylesheet" href="atlas.css?v=20261001-personal">
+<script src="atlas.js?v=20261001-personal" defer></script>
 </head>
 <body>
 <a class="skip" href="#directory">跳到网址目录</a>
@@ -30,7 +30,7 @@
     <form class="launcher" id="launcher" role="search">
       <span class="search-icon" aria-hidden="true">⌕</span>
       <label class="sr-only" for="web-query">输入网址或搜索内容</label>
-      <input id="web-query" type="text" placeholder="搜索 Google，或输入网址…" autocomplete="off" autofocus>
+      <input id="web-query" type="text" placeholder="搜索 Google，或输入网址…" autocomplete="off">
       <kbd>/</kbd>
       <button type="submit" aria-label="打开或搜索">↗</button>
     </form>
@@ -52,14 +52,34 @@
     </div>
     <div class="discovery-item">
       <div class="discovery-heading"><span class="discovery-label">随机探索 · 今天的网站</span><button id="explore-next" class="explore-next" type="button" hidden>换一个 ↻</button></div>
-      <a id="explore-link" class="project-card explore-card" href="https://www.wikipedia.org/" target="_blank" rel="noopener noreferrer">
-        <span id="explore-icon" class="quick-icon"><img src="https://www.google.com/s2/favicons?domain_url=https%3A%2F%2Fwww.wikipedia.org%2F&amp;sz=128" alt="" width="28" height="28" loading="lazy"></span>
-        <span class="project-copy" aria-live="polite"><strong id="explore-name">Wikipedia</strong><small id="explore-description">查概念、找背景，再沿参考文献继续探索。</small></span><span class="project-arrow" aria-hidden="true">↗</span>
+      <a id="explore-link" class="project-card explore-card" href="https://neal.fun/" target="_blank" rel="noopener noreferrer">
+        <span id="explore-icon" class="quick-icon"><img src="https://www.google.com/s2/favicons?domain_url=neal.fun&amp;sz=128" alt="" width="28" height="28" loading="lazy"></span>
+        <span class="project-copy" aria-live="polite"><strong id="explore-name">Neal.fun</strong><small id="explore-description">创意小游戏与互动实验。</small></span><span class="project-arrow" aria-hidden="true">↗</span>
       </a>
     </div>
     </div>
   </section>
+  <script id="discovery-data" type="application/json">{{DISCOVERY}}</script>
   <section id="directory" class="section directory" aria-labelledby="section-title">
+    <div class="local-tools">
+      <button id="add-link" type="button">＋ 添加网址</button>
+      <button id="export-links" type="button">导出我的数据</button>
+      <button id="import-trigger" type="button">导入</button><input id="import-links" type="file" accept=".json,application/json" hidden>
+      <span>默认目录＋我的网址 · 数据保存在此浏览器</span>
+    </div>
+    <p id="local-message" role="status" hidden></p>
+    <dialog id="link-dialog">
+      <form id="link-form">
+        <h2 id="link-form-title">添加我的网址</h2>
+        <label>名称<input name="name" required maxlength="80"></label>
+        <label>网址<input name="url" required placeholder="https://example.com" maxlength="2048"></label>
+        <label>分类<input name="category" required value="我的网址" maxlength="40" list="category-options"></label>
+        <datalist id="category-options"></datalist>
+        <label>简介<input name="description" maxlength="300"></label>
+        <p id="form-error" role="alert"></p>
+        <div><button id="cancel-link" type="button">取消</button><button type="submit">保存到本地</button></div>
+      </form>
+    </dialog>
     <div class="section-heading"><div><span class="eyebrow">EXPLORE</span><h2 id="section-title">网址目录</h2><p>需要时再展开探索，不打扰第一眼体验。</p></div><span class="section-meta" id="result-count" aria-live="polite">{{COUNT}} 个条目</span></div>
     <label class="directory-search" for="search"><span aria-hidden="true">⌕</span><span class="sr-only">搜索本站网址</span><input id="search" type="search" placeholder="搜索网站、工具或关键词…" autocomplete="off" aria-controls="directory"><kbd>/</kbd></label>
     <div class="search-suggestions" id="search-results" aria-label="搜索结果" hidden></div>
