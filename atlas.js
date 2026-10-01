@@ -67,6 +67,35 @@ function renderQuick(){
   quickGrid.replaceChildren(...links);
   document.querySelector('#quick-note').textContent='你收藏的网站，随时从这里打开。';
 }
+// Deterministic daily pick in the viewer's local timezone; never opens a site automatically.
+(function initExplore(){
+  const pool=cards.filter(card=>{
+    const url=new URL(destinationFor(card).href);
+    const host=url.hostname.toLowerCase();
+    return card.dataset.featured==='true'&&card.dataset.status==='reachable'
+      &&card.dataset.category!=='我的项目'&&!card.dataset.id.startsWith('my-')
+      &&url.protocol==='https:'&&!/^(localhost|127\.|10\.|192\.168\.|172\.(1[6-9]|2\d|3[01])\.)/.test(host)
+      &&host.includes('.')&&!host.endsWith('.local');
+  });
+  if(!pool.length)return;
+  const now=new Date(),day=[now.getFullYear(),now.getMonth()+1,now.getDate()].join('-');
+  let seed=0;
+  for(const char of day)seed=(seed*31+char.charCodeAt(0))>>>0;
+  let index=seed%pool.length;
+  function show(){
+    const card=pool[index],url=destinationFor(card).href,name=labelFor(card);
+    document.querySelector('#explore-link').href=url;
+    document.querySelector('#explore-name').textContent=name;
+    document.querySelector('#explore-description').textContent=card.querySelector(':scope > p:not(.note)')?.textContent||card.dataset.category;
+    document.querySelector('#explore-icon').replaceWith(Object.assign(iconFor(url,name),{id:'explore-icon'}));
+  }
+  const next=document.querySelector('#explore-next');next.hidden=pool.length<2;
+  next.addEventListener('click',()=>{
+    index=(index+1+Math.floor(Math.random()*(pool.length-1)))%pool.length;
+    show();
+  });
+  show();
+})();
 function renderSuggestions(){
   const query=search.value.trim().toLowerCase();
   suggestions.replaceChildren();
