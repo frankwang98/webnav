@@ -2,9 +2,7 @@
 const root=document.documentElement;
 const search=document.querySelector('#search');
 const webQuery=document.querySelector('#web-query');
-const siteSearch=document.querySelector('.site-search');
-const webSearch=document.querySelector('.web-search');
-let searchMode='google';
+const launcher=document.querySelector('#launcher');
 const cards=[...document.querySelectorAll('.card')];
 const suggestions=document.querySelector('#search-results');
 const quickGrid=document.querySelector('#quick-grid');
@@ -33,13 +31,25 @@ try{const value=JSON.parse(localStorage.getItem('webatlas:saved')||'[]');if(Arra
 
 (function initDate(){
   const label=document.querySelector('#today-label');
+  const clock=document.querySelector('#clock');
+  const updateClock=()=>clock.textContent=new Intl.DateTimeFormat('zh-CN',{hour:'2-digit',minute:'2-digit',hour12:false}).format(new Date());
   try{
     label.textContent=new Intl.DateTimeFormat('zh-CN',{month:'long',day:'numeric',weekday:'long'}).format(new Date());
   }catch{}
+  updateClock();setInterval(updateClock,30000);
 })();
 
 function labelFor(card){return card.querySelector('h3').textContent.replace('↗','').trim();}
 function destinationFor(card){return card.querySelector('.destination');}
+function iconFor(url,name){
+  const icon=document.createElement('span');icon.className='quick-icon';
+  const image=document.createElement('img');
+  image.src='https://www.google.com/s2/favicons?domain_url='+encodeURIComponent(url)+'&sz=128';
+  image.alt='';image.width=28;image.height=28;image.loading='lazy';image.referrerPolicy='no-referrer';
+  const fallback=document.createElement('span');fallback.className='icon-fallback';fallback.textContent=name[0]?.toUpperCase()||'?';
+  image.addEventListener('error',()=>{image.hidden=true;fallback.style.display='grid';});
+  icon.append(image,fallback);return icon;
+}
 function renderQuick(){
   const favorites=cards.filter(card=>saved.has(card.dataset.id)).slice(0,8);
   if(!favorites.length){
@@ -51,9 +61,8 @@ function renderQuick(){
     const target=destinationFor(card),name=labelFor(card);
     const link=document.createElement('a');link.className='quick-link';
     link.href=target.href;link.target='_blank';link.rel='noopener noreferrer';link.title=name;
-    const icon=document.createElement('span');icon.className='quick-icon';icon.textContent=name[0]?.toUpperCase()||'?';
     const title=document.createElement('span');title.className='quick-name';title.textContent=name;
-    link.append(icon,title);return link;
+    link.append(iconFor(target.href,name),title);return link;
   });
   quickGrid.replaceChildren(...links);
   document.querySelector('#quick-note').textContent='你收藏的网站，随时从这里打开。';
@@ -98,19 +107,19 @@ function render(){
   document.querySelectorAll('[data-view]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.view===view)));
   document.querySelectorAll('#categories button').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.category===category)));
 }
+function isWebAddress(value){
+  return /^(https?:\/\/)/i.test(value)||/^(localhost|\d{1,3}(\.\d{1,3}){3})(:\d+)?(\/.*)?$/i.test(value)||/^[\w.-]+\.[a-z]{2,}(\/.*)?$/i.test(value);
+}
+launcher.addEventListener('submit',event=>{
+  event.preventDefault();
+  const value=webQuery.value.trim();if(!value)return;
+  const url=isWebAddress(value)?(/^https?:\/\//i.test(value)?value:'https://'+value):'https://www.google.com/search?q='+encodeURIComponent(value);
+  window.open(url,'_blank','noopener,noreferrer');
+});
 search.addEventListener('input',()=>{render();renderSuggestions();});
 search.addEventListener('focus',renderSuggestions);
-document.querySelector('.search-modes').addEventListener('click',event=>{
-  const button=event.target.closest('[data-search-mode]');if(!button)return;
-  searchMode=button.dataset.searchMode;
-  webSearch.hidden=searchMode!=='google';siteSearch.hidden=searchMode!=='site';
-  document.querySelectorAll('[data-search-mode]').forEach(item=>item.setAttribute('aria-pressed',String(item===button)));
-  document.querySelector('#search-hint').textContent=searchMode==='google'?'按 / 快速搜索 · 回车打开 Google 搜索结果':'输入关键词筛选本站网址 · 按 / 快速定位';
-  if(searchMode==='google'){search.value='';suggestions.hidden=true;render();webQuery.focus();}
-  else search.focus();
-});
 document.addEventListener('click',event=>{
-  if(!event.target.closest('.search-shell'))suggestions.hidden=true;
+  if(!event.target.closest('.directory'))suggestions.hidden=true;
 });
 document.querySelector('#categories').addEventListener('click',event=>{
   const button=event.target.closest('button');if(!button)return;
@@ -129,7 +138,7 @@ document.querySelector('.grid').addEventListener('click',event=>{
 });
 document.addEventListener('keydown',event=>{
   if(event.key==='/'&&!['INPUT','TEXTAREA','SELECT'].includes(document.activeElement.tagName)){
-    event.preventDefault();(searchMode==='google'?webQuery:search).focus();
+    event.preventDefault();webQuery.focus();
   }
   if(event.key==='Escape'&&document.activeElement===search){
     search.value='';suggestions.hidden=true;render();

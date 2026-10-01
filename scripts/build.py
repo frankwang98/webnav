@@ -1,4 +1,4 @@
-import json,pathlib,html,collections
+import json,pathlib,html,collections,urllib.parse
 p=pathlib.Path(__file__).resolve().parents[1];links=json.loads((p/'data/links.json').read_text());health={x['id']:x for x in json.loads((p/'data/health.json').read_text())}
 assert len({x['id'] for x in links})==len(links)
 for x in links:
@@ -13,8 +13,15 @@ for x in links:
  cards.append(f'''<article class="card" data-id="{e(x['id'])}" data-category="{e(x['category'])}" data-kind="{e(x['kind'])}" data-status="{e(x['status'])}" data-featured="{str(x['featured']).lower()}" data-search="{e((x['name']+' '+x['description']+' '+x['category']+' '+x['url']).lower())}"><div class="card-top"><span class="monogram">{e(x['name'][0].upper())}</span><span class="badge {e(x['status'])}" title="{e(detail)}">{badge}</span><button class="save" type="button" aria-label="收藏 {e(x['name'])}" aria-pressed="false">☆</button></div><a class="destination" title="{e(x['name'])}" href="{e(x['url'])}" target="_blank" rel="noopener noreferrer"><h3>{e(x['name'])} <span>↗</span></h3></a><p>{e(x['description'])}</p><div class="card-bottom"><span>{e(x['category'])} · {e(x['kind'])}</span><span>{'原有条目' if x['source']=='legacy' else '个人项目' if x['source']=='personal' else '本次精选'}</span></div>{f'<p class="note">{e(note)}</p>' if note else ''}{f'<details><summary>检查说明</summary><p>{e(detail)}</p><small>{e(x["health"].get("checked_at",""))}</small></details>' if x['status']=='review' else ''}</article>''')
 categories=list(dict.fromkeys(x['category'] for x in links))
 nav=''.join(f'<button type="button" data-category="{e(c)}">{e(c)} <span>{sum(x["category"]==c for x in links)}</span></button>' for c in categories)
-# The first eight curated entries work even without JavaScript; saved links replace them in the browser.
-quicks='\n'.join(f'<a class="quick-link" href="{e(x["url"])}" target="_blank" rel="noopener noreferrer" title="{e(x["name"])}"><span class="quick-icon">{e(x["name"][0].upper())}</span><span class="quick-name">{e(x["name"])}</span></a>' for x in [item for item in links if item['featured']][:8])
+# Stable launcher defaults use real site favicons; saved directory links replace them in the browser.
+quick_defaults=[
+ ('GitHub','https://github.com/'),('Google','https://www.google.com/'),
+ ('YouTube','https://www.youtube.com/'),('ChatGPT','https://chatgpt.com/'),
+ ('X','https://x.com/'),('Obsidian','https://obsidian.md/'),
+ ('DeepL','https://www.deepl.com/translator'),('Wikipedia','https://www.wikipedia.org/')
+]
+def favicon(url): return 'https://www.google.com/s2/favicons?domain_url='+urllib.parse.quote(url,safe='')+'&sz=128'
+quicks='\n'.join(f'<a class="quick-link" href="{e(url)}" target="_blank" rel="noopener noreferrer" title="{e(name)}"><span class="quick-icon"><img src="{e(favicon(url))}" alt="" width="28" height="28" loading="lazy" referrerpolicy="no-referrer" onerror="this.hidden=true;this.nextElementSibling.style.display=\'grid\'"><span class="icon-fallback">{e(name[0].upper())}</span></span><span class="quick-name">{e(name)}</span></a>' for name,url in quick_defaults)
 template=(p/'index.template.html').read_text();template=template.replace('{{CARDS}}','\n'.join(cards)).replace('{{QUICKS}}',quicks).replace('{{CATEGORIES}}',nav).replace('{{COUNT}}',str(len(links))).replace('{{REVIEW}}',str(sum(x['status']=='review' for x in links)))
 (p/'index.html').write_text(template)
 (p/'data/catalog.json').write_text(json.dumps(links,ensure_ascii=False,indent=2)+'\n')
