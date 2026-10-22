@@ -1,18 +1,5 @@
 [
   {
-    "id": "america-gov",
-    "name": "America.gov",
-    "url": "https://america.gov/",
-    "description": "美国政府信息与公共服务查询入口。",
-    "category": "公共服务",
-    "kind": "网站",
-    "source": "curated",
-    "featured": true,
-    "status": "unchecked",
-    "note": "",
-    "health": {}
-  },
-  {
     "id": "chatgpt",
     "name": "ChatGPT",
     "url": "https://chatgpt.com/",
@@ -135,20 +122,6 @@
     "health": {}
   },
   {
-    "id": "my-legacy-wiki",
-    "name": "DevFrank Wiki",
-    "url": "https://frankwang98.asia/wiki/",
-    "description": "已归档 · 旧版技术 Wiki，保留历史学习笔记。",
-    "category": "我的项目",
-    "kind": "网站",
-    "source": "personal",
-    "featured": false,
-    "status": "reachable",
-    "note": "已归档 · 保留浏览",
-    "editorial_date": "2026-09-30",
-    "health": {}
-  },
-  {
     "id": "my-petshop-demo",
     "name": "泡泡爪宠物洗护店",
     "url": "https://frankwang98.asia/admin_petshop/",
@@ -200,78 +173,6 @@
       "code": 200,
       "final_url": "https://gitee.com/",
       "detail": "HTTP 可达；不代表内容已人工审查"
-    }
-  },
-  {
-    "id": "legacy-005",
-    "name": "OA平台",
-    "url": "http://10.10.10.96/wui/index.html#/main/portal/portal-2-1?menuIds=0,2&menuPathIds=0,2&_key=kzw12x",
-    "description": "OA办公",
-    "category": "工作台",
-    "kind": "网站",
-    "source": "legacy",
-    "featured": false,
-    "status": "internal",
-    "note": "",
-    "health": {
-      "id": "legacy-005",
-      "checked_at": "2026-09-30T07:36:10.172833+00:00",
-      "status": "internal",
-      "detail": "仅内网可用；不从公共网络探测"
-    }
-  },
-  {
-    "id": "legacy-006",
-    "name": "Gitlab",
-    "url": "http://10.10.10.100/",
-    "description": "代码管理",
-    "category": "工作台",
-    "kind": "网站",
-    "source": "legacy",
-    "featured": false,
-    "status": "internal",
-    "note": "",
-    "health": {
-      "id": "legacy-006",
-      "checked_at": "2026-09-30T07:36:10.173178+00:00",
-      "status": "internal",
-      "detail": "仅内网可用；不从公共网络探测"
-    }
-  },
-  {
-    "id": "legacy-007",
-    "name": "禅道",
-    "url": "http://10.10.10.100:8081/my/",
-    "description": "Bug管理",
-    "category": "工作台",
-    "kind": "网站",
-    "source": "legacy",
-    "featured": false,
-    "status": "internal",
-    "note": "",
-    "health": {
-      "id": "legacy-007",
-      "checked_at": "2026-09-30T07:36:10.173452+00:00",
-      "status": "internal",
-      "detail": "仅内网可用；不从公共网络探测"
-    }
-  },
-  {
-    "id": "legacy-008",
-    "name": "pve虚拟机",
-    "url": "https://10.10.10.124:8006/",
-    "description": "虚拟机代码运行",
-    "category": "工作台",
-    "kind": "网站",
-    "source": "legacy",
-    "featured": false,
-    "status": "internal",
-    "note": "",
-    "health": {
-      "id": "legacy-008",
-      "checked_at": "2026-09-30T07:36:10.173504+00:00",
-      "status": "internal",
-      "detail": "仅内网可用；不从公共网络探测"
     }
   },
   {
@@ -755,5 +656,50 @@
       "final_url": "https://translate.google.com/?ucbcb=1",
       "detail": "HTTP 可达；不代表内容已人工审查"
     }
+  },
+  {
+    "id": "checkcc",
+    "name": "CheckCC",
+    "url": "https://checkcc.org",
+    "description": "Claude 使用环境与浏览器风险信号检测。",
+    "category": "网络检测",
+    "kind": "网站",
+    "source": "curated",
+    "featured": false,
+    "status": "unchecked",
+    "note": "检测结果仅供参考，不代表 Claude 官方风控结论。",
+    "verified_source": "https://checkcc.org",
+    "editorial_date": "2026-10-22",
+    "health": {}
+  },
+  {
+    "id": "browserleaks",
+    "name": "BrowserLeaks",
+    "url": "https://browserleaks.com",
+    "description": "检测 IP、DNS、WebRTC 与浏览器指纹等信息。",
+    "category": "网络检测",
+    "kind": "网站",
+    "source": "curated",
+    "featured": false,
+    "status": "unchecked",
+    "note": "检测结果仅供参考，不代表 Claude 官方风控结论。",
+    "verified_source": "https://browserleaks.com",
+    "editorial_date": "2026-10-22",
+    "health": {}
+  },
+  {
+    "id": "ipcheck-ing",
+    "name": "IPCheck",
+    "url": "https://ipcheck.ing",
+    "description": "查看 IP 地址、网络出口与相关环境信息。",
+    "category": "网络检测",
+    "kind": "网站",
+    "source": "curated",
+    "featured": false,
+    "status": "unchecked",
+    "note": "检测结果仅供参考，不代表 Claude 官方风控结论。",
+    "verified_source": "https://ipcheck.ing",
+    "editorial_date": "2026-10-22",
+    "health": {}
   }
 ]

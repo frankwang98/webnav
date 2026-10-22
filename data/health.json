@@ -16,30 +16,6 @@
     "detail": "HTTP 可达；不代表内容已人工审查"
   },
   {
-    "id": "legacy-005",
-    "checked_at": "2026-09-30T07:36:10.172833+00:00",
-    "status": "internal",
-    "detail": "仅内网可用；不从公共网络探测"
-  },
-  {
-    "id": "legacy-006",
-    "checked_at": "2026-09-30T07:36:10.173178+00:00",
-    "status": "internal",
-    "detail": "仅内网可用；不从公共网络探测"
-  },
-  {
-    "id": "legacy-007",
-    "checked_at": "2026-09-30T07:36:10.173452+00:00",
-    "status": "internal",
-    "detail": "仅内网可用；不从公共网络探测"
-  },
-  {
-    "id": "legacy-008",
-    "checked_at": "2026-09-30T07:36:10.173504+00:00",
-    "status": "internal",
-    "detail": "仅内网可用；不从公共网络探测"
-  },
-  {
     "id": "legacy-009",
     "checked_at": "2026-09-30T07:36:10.173544+00:00",
     "status": "reachable",
