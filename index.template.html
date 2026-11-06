@@ -6,33 +6,37 @@
 <meta name="theme-color" content="#101014" media="(prefers-color-scheme: dark)">
 <meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)">
 <meta name="color-scheme" content="light dark">
-<title>WebAtlas · 个人互联网启动页</title>
+<title>WebNav · Web 导航</title>
 <meta name="description" content="搜索、常用入口与个人项目，在一个轻盈的起点快速打开。">
 <link rel="icon" href="atlas.svg" type="image/svg+xml">
 <link rel="stylesheet" href="atlas.css?v=20261001-personal">
 <link rel="stylesheet" href="v3.css?v=20261022">
-<script src="atlas.js?v=20261001-personal" defer></script>
-<script src="v3.js?v=20261022" defer></script>
+<script src="atlas.js?v=restore1" defer></script>
+<script src="v3.js?v=webnav1" defer></script>
+<link rel="stylesheet" href="workspace.css?v=markdown1">
+<script src="workspace.js?v=markdown1" defer></script>
+<noscript><style>#toolkit-view[hidden]{display:block!important}.flip-button{display:none}</style></noscript>
 </head>
 <body>
 <a class="skip" href="#directory">跳到网址目录</a>
 <header class="site-header">
-  <a class="brand" href="./"><img src="atlas.svg" alt="" width="30" height="30"><span>WebAtlas</span></a>
+  <a class="brand" href="./"><img src="atlas.svg" alt="" width="30" height="30"><span>WebNav</span></a>
   <nav aria-label="站点导航">
     <a href="#directory">网址目录</a>
-    <a href="https://github.com/frankwang98/webnav">GitHub</a>
+    <button class="flip-button" id="open-toolkit" type="button" aria-controls="toolkit-view" aria-expanded="false"><span aria-hidden="true">↻</span> 数字工具库</button>
     <button id="language-toggle" class="v3-tool" type="button" title="Language / 语言" aria-label="Switch language">EN</button>
     <button id="background-toggle" class="v3-tool" type="button" aria-label="更换背景" title="更换背景">◩</button>
     <button class="theme-toggle" type="button" aria-label="切换主题" title="切换主题"><span class="ico-system">◐</span><span class="ico-light">☀</span><span class="ico-dark">☾</span></button>
   </nav>
 </header>
 <div class="v3-backdrop" aria-hidden="true"></div>
+<div id="atlas-view">
 <main class="page">
   <section class="hero" aria-labelledby="hero-title">
     <div class="v3-kicker" data-i18n="kicker">YOUR WINDOW TO THE WEB</div>
     <div class="clock" id="clock" aria-label="当前时间">09:30</div>
     <p class="date" id="today-label">今天</p>
-    <h1 id="hero-title">今天想打开哪里？</h1>
+    <h1 id="hero-title" class="sr-only">搜索与网址导航</h1>
     <form class="launcher" id="launcher" role="search">
       <span class="search-icon" aria-hidden="true">⌕</span>
       <label class="sr-only" for="web-query">输入网址或搜索内容</label>
@@ -96,8 +100,17 @@
     <div class="grid">{{CARDS}}</div>
     <p id="empty" hidden>没有匹配的条目。试试别的关键词，或切回“全部”。</p>
   </section>
-  <footer><span>WebAtlas · Your internet, one calm place.</span><a href="https://github.com/frankwang98/webnav/issues/new">推荐网址 ↗</a><a href="https://github.com/frankwang98/webnav/blob/main/data/links.json">维护数据 ↗</a></footer>
+  <footer><span>WebNav · Your internet, one calm place.</span><a href="https://github.com/frankwang98/webnav/issues/new">推荐网址 ↗</a><a href="https://github.com/frankwang98/webnav/blob/main/data/links.json">维护数据 ↗</a></footer>
 </main>
+</div>
+<section id="toolkit-view" class="toolkit-page" aria-label="我的数字工具记录库" hidden>
+  <article class="toolkit-document" aria-label="个人数字工具使用记录">
+    {{TOOLKIT_RECORDS}}
+  </article>
+  <footer><span>WebNav · Personal field notes.</span><a href="https://github.com/pseudoyu/yu-tools" target="_blank" rel="noopener noreferrer">灵感来自 pseudoyu/yu-tools ↗</a><a href="https://github.com/frankwang98/webnav/blob/main/toolkit/README.md">维护工具记录 ↗</a></footer>
+</section>
+<p id="view-announcement" class="sr-only" role="status"></p>
+
 <dialog id="v3-settings" class="v3-settings"><form method="dialog"><div class="v3-settings-head"><strong data-i18n="background">背景设置</strong><button type="submit" aria-label="Close">×</button></div><p data-i18n="backgroundHint">选择渐变背景，或上传自己的图片。图片仅保存在此浏览器。</p><div class="v3-presets"><button type="button" data-bg="aurora" data-i18n="aurora">极光</button><button type="button" data-bg="sky" data-i18n="sky">天空</button><button type="button" data-bg="minimal" data-i18n="minimal">极简</button></div><label class="v3-upload"><span data-i18n="upload">上传本地图片</span><input id="v3-upload" type="file" accept="image/png,image/jpeg,image/webp,image/avif"></label><button id="v3-reset" type="button" data-i18n="reset">恢复默认背景</button><p id="v3-bg-message" role="status"></p></form></dialog>
 </body>
 </html>

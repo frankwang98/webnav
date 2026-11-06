@@ -11,7 +11,7 @@ let language='zh';
 try{language=localStorage.getItem(langKey)||(/^(zh)(-|$)/i.test(navigator.language)?'zh':'en')}catch{language=/^(zh)(-|$)/i.test(navigator.language)?'zh':'en'}
 if(!dict[language])language='en';
 const targets=[
- ['.site-header nav a[href="#directory"]','directory'],['#hero-title','hero'],['.search-hint','hint'],['#quick-title','quick'],['#quick-note','quickNote'],['.v3-shortcuts .section-meta','pinned'],['#project-title','discover'],['.discovery-item:first-child .discovery-label','project'],['.discovery-item:last-child .discovery-label','explore'],['#explore-next','next'],['#section-title','catalog'],['.directory .section-heading p','catalogNote'],['#add-link','add'],['#export-links','export'],['#import-trigger','import']
+ ['.site-header nav a[href="#directory"]','directory'],['.search-hint','hint'],['#quick-title','quick'],['#quick-note','quickNote'],['.v3-shortcuts .section-meta','pinned'],['#project-title','discover'],['.discovery-item:first-child .discovery-label','project'],['.discovery-item:last-child .discovery-label','explore'],['#explore-next','next'],['#section-title','catalog'],['.directory .section-heading p','catalogNote'],['#add-link','add'],['#export-links','export'],['#import-trigger','import']
 ];
 function applyLanguage(){
  root.lang=language==='zh'?'zh-CN':'en';
@@ -26,7 +26,7 @@ function applyLanguage(){
  const labels={all:t.all,featured:t.featured,apps:t.apps,saved:t.saved,review:t.review};
  document.querySelectorAll('[data-view]').forEach(btn=>{const key=btn.dataset.view;if(labels[key])btn.textContent=labels[key]+(key==='review'?' · '+document.querySelectorAll('.card[data-status="review"]').length:'')});
  const now=new Date();document.querySelector('#today-label').textContent=new Intl.DateTimeFormat(language==='zh'?'zh-CN':'en-US',{month:'long',day:'numeric',weekday:'long'}).format(now);
- document.title=language==='zh'?'WebAtlas · 好用的互联网':'WebAtlas · Your internet launcher';
+ document.title=language==='zh'?'WebNav · Web 导航':'WebNav · Your internet launcher';
 }
 document.querySelector('#language-toggle').addEventListener('click',()=>{language=language==='zh'?'en':'zh';try{localStorage.setItem(langKey,language)}catch{}applyLanguage()});
 applyLanguage();

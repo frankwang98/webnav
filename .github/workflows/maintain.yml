@@ -22,8 +22,11 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - run: python -m pip install -r requirements.txt
       - run: python scripts/build.py
       - run: node --check atlas.js
+      - run: node --check v3.js
+      - run: node --check workspace.js
       - name: Check generated files are current
         run: git diff --exit-code -- index.html data/catalog.json
       - name: Check public links on request

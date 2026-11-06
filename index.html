@@ -6,33 +6,37 @@
 <meta name="theme-color" content="#101014" media="(prefers-color-scheme: dark)">
 <meta name="theme-color" content="#fafafa" media="(prefers-color-scheme: light)">
 <meta name="color-scheme" content="light dark">
-<title>WebAtlas · 个人互联网启动页</title>
+<title>WebNav · Web 导航</title>
 <meta name="description" content="搜索、常用入口与个人项目，在一个轻盈的起点快速打开。">
 <link rel="icon" href="atlas.svg" type="image/svg+xml">
 <link rel="stylesheet" href="atlas.css?v=20261001-personal">
 <link rel="stylesheet" href="v3.css?v=20261022">
-<script src="atlas.js?v=20261001-personal" defer></script>
-<script src="v3.js?v=20261022" defer></script>
+<script src="atlas.js?v=restore1" defer></script>
+<script src="v3.js?v=webnav1" defer></script>
+<link rel="stylesheet" href="workspace.css?v=markdown1">
+<script src="workspace.js?v=markdown1" defer></script>
+<noscript><style>#toolkit-view[hidden]{display:block!important}.flip-button{display:none}</style></noscript>
 </head>
 <body>
 <a class="skip" href="#directory">跳到网址目录</a>
 <header class="site-header">
-  <a class="brand" href="./"><img src="atlas.svg" alt="" width="30" height="30"><span>WebAtlas</span></a>
+  <a class="brand" href="./"><img src="atlas.svg" alt="" width="30" height="30"><span>WebNav</span></a>
   <nav aria-label="站点导航">
     <a href="#directory">网址目录</a>
-    <a href="https://github.com/frankwang98/webnav">GitHub</a>
+    <button class="flip-button" id="open-toolkit" type="button" aria-controls="toolkit-view" aria-expanded="false"><span aria-hidden="true">↻</span> 数字工具库</button>
     <button id="language-toggle" class="v3-tool" type="button" title="Language / 语言" aria-label="Switch language">EN</button>
     <button id="background-toggle" class="v3-tool" type="button" aria-label="更换背景" title="更换背景">◩</button>
     <button class="theme-toggle" type="button" aria-label="切换主题" title="切换主题"><span class="ico-system">◐</span><span class="ico-light">☀</span><span class="ico-dark">☾</span></button>
   </nav>
 </header>
 <div class="v3-backdrop" aria-hidden="true"></div>
+<div id="atlas-view">
 <main class="page">
   <section class="hero" aria-labelledby="hero-title">
     <div class="v3-kicker" data-i18n="kicker">YOUR WINDOW TO THE WEB</div>
     <div class="clock" id="clock" aria-label="当前时间">09:30</div>
     <p class="date" id="today-label">今天</p>
-    <h1 id="hero-title">今天想打开哪里？</h1>
+    <h1 id="hero-title" class="sr-only">搜索与网址导航</h1>
     <form class="launcher" id="launcher" role="search">
       <span class="search-icon" aria-hidden="true">⌕</span>
       <label class="sr-only" for="web-query">输入网址或搜索内容</label>
@@ -93,10 +97,10 @@
         <div><button id="cancel-link" type="button">取消</button><button type="submit">保存到本地</button></div>
       </form>
     </dialog>
-    <div class="section-heading"><div><span class="eyebrow">EXPLORE</span><h2 id="section-title">网址目录</h2><p>需要时再展开探索，不打扰第一眼体验。</p></div><span class="section-meta" id="result-count" aria-live="polite">38 个条目</span></div>
+    <div class="section-heading"><div><span class="eyebrow">EXPLORE</span><h2 id="section-title">网址目录</h2><p>需要时再展开探索，不打扰第一眼体验。</p></div><span class="section-meta" id="result-count" aria-live="polite">39 个条目</span></div>
     <label class="directory-search" for="search"><span aria-hidden="true">⌕</span><span class="sr-only">搜索本站网址</span><input id="search" type="search" placeholder="搜索网站、工具或关键词…" autocomplete="off" aria-controls="directory"><kbd>/</kbd></label>
     <div class="search-suggestions" id="search-results" aria-label="搜索结果" hidden></div>
-    <div id="categories" class="categories" aria-label="网址分类"><button type="button" data-category="全部" aria-pressed="true">全部 <span>38</span></button><button type="button" data-category="AI 工具">AI 工具 <span>4</span></button><button type="button" data-category="我的项目">我的项目 <span>6</span></button><button type="button" data-category="开发与部署">开发与部署 <span>3</span></button><button type="button" data-category="学习社区">学习社区 <span>3</span></button><button type="button" data-category="常用工具">常用工具 <span>9</span></button><button type="button" data-category="知识与写作">知识与写作 <span>5</span></button><button type="button" data-category="数字生活">数字生活 <span>2</span></button><button type="button" data-category="视频与社区">视频与社区 <span>3</span></button><button type="button" data-category="网络检测">网络检测 <span>3</span></button></div>
+    <div id="categories" class="categories" aria-label="网址分类"><button type="button" data-category="全部" aria-pressed="true">全部 <span>39</span></button><button type="button" data-category="AI 工具">AI 工具 <span>4</span></button><button type="button" data-category="我的项目">我的项目 <span>7</span></button><button type="button" data-category="开发与部署">开发与部署 <span>3</span></button><button type="button" data-category="学习社区">学习社区 <span>3</span></button><button type="button" data-category="常用工具">常用工具 <span>9</span></button><button type="button" data-category="知识与写作">知识与写作 <span>5</span></button><button type="button" data-category="数字生活">数字生活 <span>2</span></button><button type="button" data-category="视频与社区">视频与社区 <span>3</span></button><button type="button" data-category="网络检测">网络检测 <span>3</span></button></div>
     <div class="filters" aria-label="浏览方式"><button type="button" data-view="all" aria-pressed="true">全部</button><button type="button" data-view="featured">精选</button><button type="button" data-view="apps">App</button><button type="button" data-view="saved">我的收藏</button><button type="button" data-view="review">待确认 · 0</button></div>
     <p class="view-note" id="view-note" hidden>收藏保存在当前浏览器中。</p>
     <noscript><p>未启用 JavaScript：仍可浏览和打开下面的全部网址。</p></noscript>
@@ -106,6 +110,7 @@
 <article class="card" data-id="gemini" data-category="AI 工具" data-kind="网站" data-status="unchecked" data-featured="true" data-search="gemini google 的 ai 助手，用于学习与创作。 ai 工具 https://gemini.google.com/"><div class="card-top"><span class="monogram">G</span><span class="badge unchecked" title="">未探测</span><button class="save" type="button" aria-label="收藏 Gemini" aria-pressed="false">☆</button></div><a class="destination" title="Gemini" href="https://gemini.google.com/" target="_blank" rel="noopener noreferrer"><h3>Gemini <span>↗</span></h3></a><p>Google 的 AI 助手，用于学习与创作。</p><div class="card-bottom"><span>AI 工具 · 网站</span><span>本次精选</span></div></article>
 <article class="card" data-id="my-personal-home" data-category="我的项目" data-kind="网站" data-status="reachable" data-featured="false" data-search="个人主页 项目、知识与文章的统一入口。 我的项目 https://frankwang98.asia/"><div class="card-top"><span class="monogram">个</span><span class="badge reachable" title="">HTTP 可达</span><button class="save" type="button" aria-label="收藏 个人主页" aria-pressed="false">☆</button></div><a class="destination" title="个人主页" href="https://frankwang98.asia/" target="_blank" rel="noopener noreferrer"><h3>个人主页 <span>↗</span></h3></a><p>项目、知识与文章的统一入口。</p><div class="card-bottom"><span>我的项目 · 网站</span><span>个人项目</span></div></article>
 <article class="card" data-id="my-modernlife101" data-category="我的项目" data-kind="网站" data-status="reachable" data-featured="false" data-search="modernlife101 现代世界生存与探索指南，随机读懂一个生活问题。 我的项目 https://frankwang98.asia/modernlife101/"><div class="card-top"><span class="monogram">M</span><span class="badge reachable" title="">HTTP 可达</span><button class="save" type="button" aria-label="收藏 ModernLife101" aria-pressed="false">☆</button></div><a class="destination" title="ModernLife101" href="https://frankwang98.asia/ModernLife101/" target="_blank" rel="noopener noreferrer"><h3>ModernLife101 <span>↗</span></h3></a><p>现代世界生存与探索指南，随机读懂一个生活问题。</p><div class="card-bottom"><span>我的项目 · 网站</span><span>个人项目</span></div></article>
+<article class="card" data-id="my-life-simulator" data-category="我的项目" data-kind="网站" data-status="unchecked" data-featured="false" data-search="lifesimulator 人生平行世界模拟器，调整生活变量，推演并回放行为选择。 我的项目 https://frankwang98.github.io/lifesimulator/"><div class="card-top"><span class="monogram">L</span><span class="badge unchecked" title="">未探测</span><button class="save" type="button" aria-label="收藏 LifeSimulator" aria-pressed="false">☆</button></div><a class="destination" title="LifeSimulator" href="https://frankwang98.github.io/LifeSimulator/" target="_blank" rel="noopener noreferrer"><h3>LifeSimulator <span>↗</span></h3></a><p>人生平行世界模拟器，调整生活变量，推演并回放行为选择。</p><div class="card-bottom"><span>我的项目 · 网站</span><span>个人项目</span></div></article>
 <article class="card" data-id="my-awesome-hub" data-category="我的项目" data-kind="网站" data-status="reachable" data-featured="false" data-search="awesome hub c++、ros2、自动驾驶与机器人技术知识库。 我的项目 https://frankwang98.asia/awesome_hub/"><div class="card-top"><span class="monogram">A</span><span class="badge reachable" title="">HTTP 可达</span><button class="save" type="button" aria-label="收藏 Awesome Hub" aria-pressed="false">☆</button></div><a class="destination" title="Awesome Hub" href="https://frankwang98.asia/awesome_hub/" target="_blank" rel="noopener noreferrer"><h3>Awesome Hub <span>↗</span></h3></a><p>C++、ROS2、自动驾驶与机器人技术知识库。</p><div class="card-bottom"><span>我的项目 · 网站</span><span>个人项目</span></div></article>
 <article class="card" data-id="my-education-hub" data-category="我的项目" data-kind="网站" data-status="reachable" data-featured="false" data-search="education hub 基础知识、通识教育与互动练习。 我的项目 https://frankwang98.asia/education_hub/"><div class="card-top"><span class="monogram">E</span><span class="badge reachable" title="">HTTP 可达</span><button class="save" type="button" aria-label="收藏 Education Hub" aria-pressed="false">☆</button></div><a class="destination" title="Education Hub" href="https://frankwang98.asia/education_hub/" target="_blank" rel="noopener noreferrer"><h3>Education Hub <span>↗</span></h3></a><p>基础知识、通识教育与互动练习。</p><div class="card-bottom"><span>我的项目 · 网站</span><span>个人项目</span></div></article>
 <article class="card" data-id="my-ros2drive-cloud" data-category="我的项目" data-kind="网站" data-status="reachable" data-featured="false" data-search="ros2drive cloud 车辆任务控制台与只读车队监控。 我的项目 https://frankwang98.asia/ros2drive-cloud/"><div class="card-top"><span class="monogram">R</span><span class="badge reachable" title="">HTTP 可达</span><button class="save" type="button" aria-label="收藏 ROS2Drive Cloud" aria-pressed="false">☆</button></div><a class="destination" title="ROS2Drive Cloud" href="https://frankwang98.asia/ROS2Drive-Cloud/" target="_blank" rel="noopener noreferrer"><h3>ROS2Drive Cloud <span>↗</span></h3></a><p>车辆任务控制台与只读车队监控。</p><div class="card-bottom"><span>我的项目 · 网站</span><span>个人项目</span></div></article>
@@ -140,34 +145,86 @@
 <article class="card" data-id="ipcheck-ing" data-category="网络检测" data-kind="网站" data-status="unchecked" data-featured="false" data-search="ipcheck 查看 ip 地址、网络出口与相关环境信息。 网络检测 https://ipcheck.ing"><div class="card-top"><span class="monogram">I</span><span class="badge unchecked" title="">未探测</span><button class="save" type="button" aria-label="收藏 IPCheck" aria-pressed="false">☆</button></div><a class="destination" title="IPCheck" href="https://ipcheck.ing" target="_blank" rel="noopener noreferrer"><h3>IPCheck <span>↗</span></h3></a><p>查看 IP 地址、网络出口与相关环境信息。</p><div class="card-bottom"><span>网络检测 · 网站</span><span>本次精选</span></div><p class="note">检测结果仅供参考，不代表 Claude 官方风控结论。</p></article></div>
     <p id="empty" hidden>没有匹配的条目。试试别的关键词，或切回“全部”。</p>
   </section>
-  <footer><span>WebAtlas · Your internet, one calm place.</span><a href="https://github.com/frankwang98/webnav/issues/new">推荐网址 ↗</a><a href="https://github.com/frankwang98/webnav/blob/main/data/links.json">维护数据 ↗</a><button class="vault-trigger" id="vault-trigger" type="button" aria-label="打开个人数字工具库" title="翻转 · 个人数字工具库">↻</button></footer>
+  <footer><span>WebNav · Your internet, one calm place.</span><a href="https://github.com/frankwang98/webnav/issues/new">推荐网址 ↗</a><a href="https://github.com/frankwang98/webnav/blob/main/data/links.json">维护数据 ↗</a></footer>
 </main>
-<dialog id="v3-settings" class="v3-settings"><form method="dialog"><div class="v3-settings-head"><strong data-i18n="background">背景设置</strong><button type="submit" aria-label="Close">×</button></div><p data-i18n="backgroundHint">选择渐变背景，或上传自己的图片。图片仅保存在此浏览器。</p><div class="v3-presets"><button type="button" data-bg="aurora" data-i18n="aurora">极光</button><button type="button" data-bg="sky" data-i18n="sky">天空</button><button type="button" data-bg="minimal" data-i18n="minimal">极简</button></div><label class="v3-upload"><span data-i18n="upload">上传本地图片</span><input id="v3-upload" type="file" accept="image/png,image/jpeg,image/webp,image/avif"></label><button id="v3-reset" type="button" data-i18n="reset">恢复默认背景</button><p id="v3-bg-message" role="status"></p></form></dialog>
+</div>
+<section id="toolkit-view" class="toolkit-page" aria-label="我的数字工具记录库" hidden>
+  <article class="toolkit-document" aria-label="个人数字工具使用记录">
+    <h1>我的数字工具记录库</h1>
+<p>记录数字生活中接触的工具与服务，以及之后慢慢积累的使用体验。</p>
+<h2>AI 与创作</h2>
+<h3><a href="https://chatgpt.com/">ChatGPT</a></h3>
+<p>AI 助手、研究与编程搭档</p>
+<h3><a href="https://claude.ai/">Claude</a></h3>
+<p>长文阅读、写作与代码协作</p>
+<h3><a href="https://gemini.google.com/">Gemini</a></h3>
+<p>Google 的多模态 AI 助手</p>
+<h3><a href="https://cursor.com/">Cursor</a></h3>
+<p>AI 原生代码编辑器</p>
+<h3><a href="https://huggingface.co/">Hugging Face</a></h3>
+<p>模型、数据集与 AI 开源社区</p>
+<h2>开发与工程</h2>
+<h3><a href="https://github.com/">GitHub</a></h3>
+<p>代码托管、协作与自动化工作流</p>
+<h3><a href="https://code.visualstudio.com/">Visual Studio Code</a></h3>
+<p>轻量、跨平台的代码编辑器</p>
+<h3><a href="https://www.docker.com/">Docker</a></h3>
+<p>容器化开发与部署</p>
+<h3><a href="https://orbstack.dev/">OrbStack</a></h3>
+<p>macOS 上的轻量容器与 Linux 环境</p>
+<h3><a href="https://brew.sh/">Homebrew</a></h3>
+<p>macOS 软件包管理器</p>
+<h3><a href="https://www.postman.com/">Postman</a></h3>
+<p>API 调试与接口协作</p>
+<h3><a href="https://tableplus.com/">TablePlus</a></h3>
+<p>数据库 GUI 客户端</p>
+<h2>云与部署</h2>
+<h3><a href="https://www.cloudflare.com/">Cloudflare</a></h3>
+<p>DNS、CDN、安全与边缘计算</p>
+<h3><a href="https://vercel.com/">Vercel</a></h3>
+<p>前端应用部署与预览</p>
+<h3><a href="https://supabase.com/">Supabase</a></h3>
+<p>PostgreSQL、认证、存储与 API</p>
+<h3><a href="https://firebase.google.com/">Firebase</a></h3>
+<p>应用后端与 Google 云服务</p>
+<h3><a href="https://tailscale.com/">Tailscale</a></h3>
+<p>设备组网与安全远程访问</p>
+<h2>知识与效率</h2>
+<h3><a href="https://obsidian.md/">Obsidian</a></h3>
+<p>本地 Markdown 知识库</p>
+<h3><a href="https://www.notion.so/">Notion</a></h3>
+<p>文档、知识库与项目协作</p>
+<h3><a href="https://www.raycast.com/">Raycast</a></h3>
+<p>快速启动、搜索与工作流</p>
+<h3><a href="https://1password.com/">1Password</a></h3>
+<p>密码、密钥与敏感信息管理</p>
+<h3><a href="https://bitwarden.com/">Bitwarden</a></h3>
+<p>开源密码管理方案</p>
+<h3><a href="https://readwise.io/">Readwise</a></h3>
+<p>阅读高亮与知识回顾</p>
+<h2>文件与创作</h2>
+<h3><a href="https://www.microsoft.com/microsoft-365/onedrive/online-cloud-storage">OneDrive</a></h3>
+<p>微软云文件存储与同步</p>
+<h3><a href="https://drive.google.com/">Google Drive</a></h3>
+<p>云端文件、文档与协作</p>
+<h3><a href="https://www.figma.com/">Figma</a></h3>
+<p>界面设计与交互原型</p>
+<h3><a href="https://excalidraw.com/">Excalidraw</a></h3>
+<p>手绘风格白板与架构草图</p>
+<h3><a href="https://www.canva.com/">Canva</a></h3>
+<p>海报、演示文稿与视觉内容</p>
+<h3><a href="https://handbrake.fr/">HandBrake</a></h3>
+<p>开源视频转码工具</p>
+<h3>hello</h3>
+<ul>
+<li>hello2</li>
+<li>hello3</li>
+</ul>
+  </article>
+  <footer><span>WebNav · Personal field notes.</span><a href="https://github.com/pseudoyu/yu-tools" target="_blank" rel="noopener noreferrer">灵感来自 pseudoyu/yu-tools ↗</a><a href="https://github.com/frankwang98/webnav/blob/main/toolkit/README.md">维护工具记录 ↗</a></footer>
+</section>
+<p id="view-announcement" class="sr-only" role="status"></p>
 
-<style>
-.vault-trigger{border:0;background:transparent;color:var(--muted);opacity:.2;font-size:18px;cursor:pointer;padding:5px 9px;transition:opacity .2s,transform .5s}.vault-trigger:hover,.vault-trigger:focus-visible{opacity:.9;transform:rotate(180deg)}
-#personal-vault{width:min(1040px,calc(100% - 28px));max-width:none;max-height:min(88vh,900px);padding:0;border:1px solid var(--border);border-radius:26px;background:var(--bg);color:var(--text);box-shadow:0 35px 100px rgba(0,0,0,.35);overflow:auto;transform-origin:center;animation:vault-in .55s cubic-bezier(.2,.8,.2,1)}
-#personal-vault::backdrop{background:rgba(5,9,22,.68);backdrop-filter:blur(12px)}
-@keyframes vault-in{0%{opacity:0;transform:perspective(1200px) rotateY(-82deg) scale(.88)}100%{opacity:1;transform:perspective(1200px) rotateY(0) scale(1)}}
-.vault-head{position:sticky;top:0;z-index:2;padding:26px 30px 20px;background:var(--bg);border-bottom:1px solid var(--border);display:flex;align-items:flex-start;justify-content:space-between;gap:18px}
-.vault-kicker{font-size:10px;letter-spacing:.22em;color:var(--accent-ink);font-weight:800}.vault-head h2{font-size:26px;margin:7px 0 4px;letter-spacing:-.04em}.vault-head p{margin:0;color:var(--muted);font-size:12px}
-.vault-close{width:36px;height:36px;border:1px solid var(--border);border-radius:50%;background:var(--surface);color:var(--text);font-size:22px;cursor:pointer}
-.vault-body{padding:20px 30px 30px}.vault-search{width:100%;height:44px;padding:0 14px;border:1px solid var(--border);border-radius:12px;background:var(--surface);color:var(--text);outline:none;margin-bottom:20px}
-.vault-group{margin:22px 0}.vault-group h3{font-size:14px;font-weight:700;display:flex;gap:9px;align-items:center;margin:0 0 12px}.vault-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
-.vault-card{min-width:0;display:flex;align-items:center;gap:10px;padding:13px;border:1px solid var(--border);border-radius:14px;background:var(--surface);color:var(--text);text-decoration:none;transition:transform .2s,border-color .2s}.vault-card:hover{transform:translateY(-2px);border-color:var(--accent)}
-.vault-mark{flex:0 0 34px;width:34px;height:34px;display:grid;place-items:center;border-radius:10px;background:var(--soft);font-size:13px;font-weight:800}.vault-copy{min-width:0;display:flex;flex-direction:column;gap:4px}.vault-copy b{font-size:12px}.vault-copy small{font-size:10px;line-height:1.45;color:var(--muted)}.vault-tag{margin-left:auto;font-size:8px;color:var(--accent-ink);letter-spacing:.06em}.vault-arrow{font-size:12px;color:var(--muted)}
-.vault-credit{border-top:1px solid var(--border);padding-top:15px;margin-top:25px;color:var(--muted);font-size:10px;line-height:1.7}.vault-credit a{color:var(--accent-ink)}
-@media(max-width:720px){.vault-head{padding:20px 18px 16px}.vault-head h2{font-size:22px}.vault-body{padding:15px 16px 24px}.vault-grid{grid-template-columns:1fr 1fr}.vault-tag{display:none}}
-@media(max-width:420px){.vault-grid{grid-template-columns:1fr}.vault-card{padding:11px}}
-@media(prefers-reduced-motion:reduce){#personal-vault{animation:none}.vault-card,.vault-trigger{transition:none}}
-</style>
-<dialog id="personal-vault" aria-labelledby="vault-title">
-<div class="vault-head"><div><div class="vault-kicker">PRIVATE COLLECTION · DIGITAL TOOLKIT</div><h2 id="vault-title">我的数字工具库</h2><p>长期使用、值得收藏的数字工具与服务。</p></div><button class="vault-close" id="vault-close" type="button" aria-label="关闭">×</button></div>
-<div class="vault-body"><input class="vault-search" id="vault-search" type="search" placeholder="搜索工具、用途或分类…" autocomplete="off"><section class="vault-group" data-group="AI 与创作"><h3><span>🤖</span>AI 与创作</h3><div class="vault-grid"><a class="vault-card" href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer"><span class="vault-mark">C</span><span class="vault-copy"><b>ChatGPT</b><small>AI 助手、研究与编程搭档</small></span><span class="vault-tag">AI</span><span class="vault-arrow">↗</span></a><a class="vault-card" href="https://claude.ai/" target="_blank" rel="noopener noreferrer"><span class="vault-mark">C</span><span class="vault-copy"><b>Claude</b><small>长文阅读、写作与代码协作</small></span><span class="vault-tag">AI</span><span class="vault-arrow">↗</span></a><a class="vault-card" href="https://gemini.google.com/" target="_blank" rel="noopener noreferrer"><span class="vault-mark">G</span><span class="vault-copy"><b>Gemini</b><small>Google 的多模态 AI 助手</small></span><span class="vault-tag">AI</span><span class="vault-arrow">↗</span></a><a class="vault-card" href="https://cursor.com/" target="_blank" rel="noopener noreferrer"><span class="vault-mark">C</span><span class="vault-copy"><b>Cursor</b><small>AI 原生代码编辑器</small></span><span class="vault-tag">AI</span><span class="vault-arrow">↗</span></a><a class="vault-card" href="https://huggingface.co/" target="_blank" rel="noopener noreferrer"><span class="vault-mark">H</span><span class="vault-copy"><b>Hugging Face</b><small>模型、数据集与 AI 开源社区</small></span><span class="vault-tag">AI</span><span class="vault-arrow">↗</span></a></div></section><section class="vault-group" data-group="开发与工程"><h3><span>⌘</span>开发与工程</h3><div class="vault-grid"><a class="vault-card" href="https://github.com/" target="_blank" rel="noopener noreferrer"><span class="vault-mark">G</span><span class="vault-copy"><b>GitHub</b><small>代码托管、协作与自动化工作流</small></span><span class="vault-tag">DEV</span><span class="vault-arrow">↗</span></a><a class="vault-card" href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer"><span class="vault-mark">V</span><span class="vault-copy"><b>Visual Studio Code</b><small>轻量、跨平台的代码编辑器</small></span><span class="vault-tag">DEV</span><span class="vault-arrow">↗</span></a><a class="vault-card" href="https://www.docker.com/" target="_blank" rel="noopener noreferrer"><span class="vault-mark">D</span><span class="vault-copy"><b>Docker</b><small>容器化开发与部署</small></span><span class="vault-tag">DEV</span><span class="vault-arrow">↗</span></a><a class="vault-card" href="https://orbstack.dev/" target="_blank" rel="noopener noreferrer"><span class="vault-mark">O</span><span class="vault-copy"><b>OrbStack</b><small>macOS 上的轻量容器与 Linux 环境</small></span><span class="vault-tag">DEV</span><span class="vault-arrow">↗</span></a><a class="vault-card" href="https://brew.sh/" target="_blank" rel="noopener noreferrer"><span class="vault-mark">H</span><span class="vault-copy"><b>Homebrew</b><small>macOS 软件包管理器</small></span><span class="vault-tag">DEV</span><span class="vault-arrow">↗</span></a><a class="vault-card" href="https://www.postman.com/" target="_blank" rel="noopener noreferrer"><span class="vault-mark">P</span><span class="vault-copy"><b>Postman</b><small>API 调试与接口协作</small></span><span class="vault-tag">DEV</span><span class="vault-arrow">↗</span></a><a class="vault-card" href="https://tableplus.com/" target="_blank" rel="noopener noreferrer"><span class="vault-mark">T</span><span class="vault-copy"><b>TablePlus</b><small>数据库 GUI 客户端</small></span><span class="vault-tag">DEV</span><span class="vault-arrow">↗</span></a></div></section><section class="vault-group" data-group="云与部署"><h3><span>☁</span>云与部署</h3><div class="vault-grid"><a class="vault-card" href="https://www.cloudflare.com/" target="_blank" rel="noopener noreferrer"><span class="vault-mark">C</span><span class="vault-copy"><b>Cloudflare</b><small>DNS、CDN、安全与边缘计算</small></span><span class="vault-tag">CLOUD</span><span class="vault-arrow">↗</span></a><a class="vault-card" href="https://vercel.com/" target="_blank" rel="noopener noreferrer"><span class="vault-mark">V</span><span class="vault-copy"><b>Vercel</b><small>前端应用部署与预览</small></span><span class="vault-tag">CLOUD</span><span class="vault-arrow">↗</span></a><a class="vault-card" href="https://supabase.com/" target="_blank" rel="noopener noreferrer"><span class="vault-mark">S</span><span class="vault-copy"><b>Supabase</b><small>PostgreSQL、认证、存储与 API</small></span><span class="vault-tag">CLOUD</span><span class="vault-arrow">↗</span></a><a class="vault-card" href="https://firebase.google.com/" target="_blank" rel="noopener noreferrer"><span class="vault-mark">F</span><span class="vault-copy"><b>Firebase</b><small>应用后端与 Google 云服务</small></span><span class="vault-tag">CLOUD</span><span class="vault-arrow">↗</span></a><a class="vault-card" href="https://tailscale.com/" target="_blank" rel="noopener noreferrer"><span class="vault-mark">T</span><span class="vault-copy"><b>Tailscale</b><small>设备组网与安全远程访问</small></span><span class="vault-tag">CLOUD</span><span class="vault-arrow">↗</span></a></div></section><section class="vault-group" data-group="知识与效率"><h3><span>✳</span>知识与效率</h3><div class="vault-grid"><a class="vault-card" href="https://obsidian.md/" target="_blank" rel="noopener noreferrer"><span class="vault-mark">O</span><span class="vault-copy"><b>Obsidian</b><small>本地 Markdown 知识库</small></span><span class="vault-tag">LIFE</span><span class="vault-arrow">↗</span></a><a class="vault-card" href="https://www.notion.so/" target="_blank" rel="noopener noreferrer"><span class="vault-mark">N</span><span class="vault-copy"><b>Notion</b><small>文档、知识库与项目协作</small></span><span class="vault-tag">LIFE</span><span class="vault-arrow">↗</span></a><a class="vault-card" href="https://www.raycast.com/" target="_blank" rel="noopener noreferrer"><span class="vault-mark">R</span><span class="vault-copy"><b>Raycast</b><small>快速启动、搜索与工作流</small></span><span class="vault-tag">LIFE</span><span class="vault-arrow">↗</span></a><a class="vault-card" href="https://1password.com/" target="_blank" rel="noopener noreferrer"><span class="vault-mark">1</span><span class="vault-copy"><b>1Password</b><small>密码、密钥与敏感信息管理</small></span><span class="vault-tag">LIFE</span><span class="vault-arrow">↗</span></a><a class="vault-card" href="https://bitwarden.com/" target="_blank" rel="noopener noreferrer"><span class="vault-mark">B</span><span class="vault-copy"><b>Bitwarden</b><small>开源密码管理方案</small></span><span class="vault-tag">LIFE</span><span class="vault-arrow">↗</span></a><a class="vault-card" href="https://readwise.io/" target="_blank" rel="noopener noreferrer"><span class="vault-mark">R</span><span class="vault-copy"><b>Readwise</b><small>阅读高亮与知识回顾</small></span><span class="vault-tag">LIFE</span><span class="vault-arrow">↗</span></a></div></section><section class="vault-group" data-group="文件与创作"><h3><span>▧</span>文件与创作</h3><div class="vault-grid"><a class="vault-card" href="https://www.microsoft.com/microsoft-365/onedrive/online-cloud-storage" target="_blank" rel="noopener noreferrer"><span class="vault-mark">O</span><span class="vault-copy"><b>OneDrive</b><small>微软云文件存储与同步</small></span><span class="vault-tag">MEDIA</span><span class="vault-arrow">↗</span></a><a class="vault-card" href="https://drive.google.com/" target="_blank" rel="noopener noreferrer"><span class="vault-mark">G</span><span class="vault-copy"><b>Google Drive</b><small>云端文件、文档与协作</small></span><span class="vault-tag">MEDIA</span><span class="vault-arrow">↗</span></a><a class="vault-card" href="https://www.figma.com/" target="_blank" rel="noopener noreferrer"><span class="vault-mark">F</span><span class="vault-copy"><b>Figma</b><small>界面设计与交互原型</small></span><span class="vault-tag">MEDIA</span><span class="vault-arrow">↗</span></a><a class="vault-card" href="https://excalidraw.com/" target="_blank" rel="noopener noreferrer"><span class="vault-mark">E</span><span class="vault-copy"><b>Excalidraw</b><small>手绘风格白板与架构草图</small></span><span class="vault-tag">MEDIA</span><span class="vault-arrow">↗</span></a><a class="vault-card" href="https://www.canva.com/" target="_blank" rel="noopener noreferrer"><span class="vault-mark">C</span><span class="vault-copy"><b>Canva</b><small>海报、演示文稿与视觉内容</small></span><span class="vault-tag">MEDIA</span><span class="vault-arrow">↗</span></a><a class="vault-card" href="https://handbrake.fr/" target="_blank" rel="noopener noreferrer"><span class="vault-mark">H</span><span class="vault-copy"><b>HandBrake</b><small>开源视频转码工具</small></span><span class="vault-tag">MEDIA</span><span class="vault-arrow">↗</span></a></div></section>
-<div class="vault-credit">个人整理与筛选，工具选择会随使用习惯持续更新。灵感参考 <a href="https://github.com/pseudoyu/yu-tools" target="_blank" rel="noopener noreferrer">pseudoyu/yu-tools</a>；本页为独立编写的工具摘要，并非原文转载。参考项目采用 MIT License，版权归 pseudoyu 所有。<br>MIT License notice: Copyright (c) 2024 pseudoyu. Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files, subject to inclusion of this notice.</div>
-</div></dialog>
-<script>
-(()=>{const trigger=document.querySelector('#vault-trigger'),dialog=document.querySelector('#personal-vault'),close=document.querySelector('#vault-close'),search=document.querySelector('#vault-search');if(!trigger||!dialog)return;trigger.addEventListener('click',()=>{dialog.showModal();dialog.querySelector('.vault-head').animate([{transform:'perspective(900px) rotateY(-12deg)'},{transform:'perspective(900px) rotateY(0)'}],{duration:420,easing:'cubic-bezier(.2,.8,.2,1)'});search.value='';filter();search.focus()});close.addEventListener('click',()=>dialog.close());dialog.addEventListener('click',e=>{if(e.target===dialog)dialog.close()});function filter(){const q=search.value.trim().toLowerCase();dialog.querySelectorAll('.vault-card').forEach(card=>card.hidden=!card.textContent.toLowerCase().includes(q));dialog.querySelectorAll('.vault-group').forEach(group=>group.hidden=!group.querySelector('.vault-card:not([hidden])'))}search.addEventListener('input',filter);document.addEventListener('keydown',e=>{if(e.altKey&&e.shiftKey&&e.key.toLowerCase()==='d'){e.preventDefault();if(!dialog.open)trigger.click()}})})();
-</script>
+<dialog id="v3-settings" class="v3-settings"><form method="dialog"><div class="v3-settings-head"><strong data-i18n="background">背景设置</strong><button type="submit" aria-label="Close">×</button></div><p data-i18n="backgroundHint">选择渐变背景，或上传自己的图片。图片仅保存在此浏览器。</p><div class="v3-presets"><button type="button" data-bg="aurora" data-i18n="aurora">极光</button><button type="button" data-bg="sky" data-i18n="sky">天空</button><button type="button" data-bg="minimal" data-i18n="minimal">极简</button></div><label class="v3-upload"><span data-i18n="upload">上传本地图片</span><input id="v3-upload" type="file" accept="image/png,image/jpeg,image/webp,image/avif"></label><button id="v3-reset" type="button" data-i18n="reset">恢复默认背景</button><p id="v3-bg-message" role="status"></p></form></dialog>
 </body>
 </html>

@@ -1,3 +1,4 @@
+import markdown
 import json,pathlib,html,collections,urllib.parse
 p=pathlib.Path(__file__).resolve().parents[1];links=json.loads((p/'data/links.json').read_text());health={x['id']:x for x in json.loads((p/'data/health.json').read_text())}
 assert len({x['id'] for x in links})==len(links)
@@ -27,6 +28,11 @@ assert all(x['url'].startswith('https://') for x in discovery)
 assert not {x['url'] for x in discovery}&{x['url'] for x in links}
 discovery_json=json.dumps(discovery,ensure_ascii=False).replace('<','\\u003c')
 template=(p/'index.template.html').read_text();template=template.replace('{{DISCOVERY}}',discovery_json).replace('{{CARDS}}','\n'.join(cards)).replace('{{QUICKS}}',quicks).replace('{{CATEGORIES}}',nav).replace('{{COUNT}}',str(len(links))).replace('{{REVIEW}}',str(sum(x['status']=='review' for x in links)))
+# Render the same Markdown that GitHub displays; no client-side fetch is needed.
+toolkit_markdown=(p/'toolkit/README.md').read_text()
+toolkit_html=markdown.markdown(toolkit_markdown,extensions=['extra','sane_lists'],output_format='html5')
+template=template.replace('{{TOOLKIT_RECORDS}}',toolkit_html)
+assert '{{' not in template, 'Unresolved template placeholder'
 (p/'index.html').write_text(template)
 (p/'data/catalog.json').write_text(json.dumps(links,ensure_ascii=False,indent=2)+'\n')
 print(f'Built {len(links)} cards, legacy entries retained according to owner decisions; {sum(x["status"]=="review" for x in links)} need review.')

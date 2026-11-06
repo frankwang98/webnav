@@ -80,6 +80,21 @@
     "health": {}
   },
   {
+    "id": "my-life-simulator",
+    "name": "LifeSimulator",
+    "url": "https://frankwang98.github.io/LifeSimulator/",
+    "description": "人生平行世界模拟器，调整生活变量，推演并回放行为选择。",
+    "category": "我的项目",
+    "kind": "网站",
+    "source": "personal",
+    "featured": false,
+    "status": "unchecked",
+    "note": "",
+    "verified_source": "https://github.com/frankwang98/LifeSimulator/blob/main/README.md",
+    "editorial_date": "2026-11-06",
+    "health": {}
+  },
+  {
     "id": "my-awesome-hub",
     "name": "Awesome Hub",
     "url": "https://frankwang98.asia/awesome_hub/",

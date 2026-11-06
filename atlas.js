@@ -165,7 +165,7 @@ document.querySelector('.grid').addEventListener('click',event=>{
 });
 document.addEventListener('keydown',event=>{
   if(event.key==='/'&&!['INPUT','TEXTAREA','SELECT'].includes(document.activeElement.tagName)){
-    event.preventDefault();webQuery.focus();
+    if (!document.querySelector('#atlas-view').hidden) { event.preventDefault();webQuery.focus(); }
   }
   if(event.key==='Escape'&&document.activeElement===search){
     search.value='';suggestions.hidden=true;render();
