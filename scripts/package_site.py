@@ -8,8 +8,9 @@ if out.exists():
     shutil.rmtree(out)
 out.mkdir()
 # Explicit public entry points; archived pages and build sources are never published.
-for name in ['index.html', 'atlas.css', 'atlas.js', 'atlas.svg', 'v3.css', 'v3.js', 'workspace.css', 'workspace.js']:
+for name in ['index.html', 'atlas.svg']:
     shutil.copy2(root / name, out / name)
+shutil.copytree(root / 'assets', out / 'assets')
 if (root / 'CNAME').exists():
     shutil.copy2(root / 'CNAME', out / 'CNAME')
 (out / 'data').mkdir()

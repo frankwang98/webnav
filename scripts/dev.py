@@ -17,7 +17,7 @@ STOP = threading.Event()
 
 def fingerprint():
     paths = [ROOT / 'index.template.html', ROOT / 'requirements.txt']
-    for folder, suffixes in [('data', {'.json'}), ('toolkit', {'.md'}), ('scripts', {'.py'})]:
+    for folder, suffixes in [('data', {'.json'}), ('toolkit', {'.md'}), ('scripts', {'.py'}), ('assets', {'.css', '.js', '.svg'})]:
         paths.extend(x for x in (ROOT / folder).rglob('*') if x.suffix in suffixes and x.name != 'catalog.json')
     paths.extend(x for x in ROOT.iterdir() if x.suffix in {'.css', '.js', '.svg'})
     digest = hashlib.sha256()

@@ -1,4 +1,4 @@
-# WebAtlas：入口与记录的双面设计
+# WebNav：入口与记录的双面设计
 
 ## 页面与信息层级
 
@@ -13,9 +13,9 @@
 | `toolkit/README.md` | 站长的个人工具记录，独立于公共网址目录 |
 | `index.template.html` | 页面结构与构建占位符 |
 | `scripts/build.py` | 校验数据、转义文本、生成静态首页与 catalog |
-| `atlas.js` / `atlas.css` | 网址目录、收藏、导入导出和基础主题 |
-| `v3.js` / `v3.css` | 启动页、语言和背景设置 |
-| `workspace.js` / `workspace.css` | 双面视图、长文排版与视觉调整 |
+| `assets/js/atlas.js` / `assets/css/atlas.css` | 网址目录、收藏、导入导出和基础主题 |
+| `assets/js/v3.js` / `assets/css/v3.css` | 启动页、语言和背景设置 |
+| `assets/js/workspace.js` / `assets/css/workspace.css` | 双面视图、长文排版与视觉调整 |
 | `index.html` / `data/catalog.json` | 构建产物，不直接编辑 |
 
 保留原有脚本职责与本地存储键，避免重构导致收藏或背景丢失。不引入前端运行时框架或数据库；构建阶段使用 Python-Markdown。所有工具记录在构建时输出为 HTML。
