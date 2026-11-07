@@ -28,7 +28,7 @@ python3 scripts/build.py
 python3 -m http.server 8000
 ```
 
-访问 `http://localhost:8000`。把内容数据与生成的 `index.html`、`data/catalog.json` 一起提交。页面使用相对路径，支持 GitHub Pages 项目子目录；仓库名仍保留 `webnav`。
+访问 `http://localhost:8000`。只提交 Markdown、内容数据和其他源文件；HTML 和 catalog 由 CI 自动生成，无需提交。页面使用相对路径，支持 GitHub Pages 项目子目录；仓库名仍保留 `webnav`。
 
 条目字段：`id`（稳定唯一）、`name`、`url`（原始链接）、`description`、`category`、`kind`（网站/App）、`source`（legacy/curated）、`featured`、`status`、`note`。新增工具填写 `verified_source` 与 `editorial_date`，优先官方入口，避免重复。
 
@@ -41,11 +41,11 @@ python3 scripts/build.py
 
 检查结果保存在 `data/health.json`，记录时间、HTTP 状态、跳转终点和原因。HTTP 成功只表示可达，不证明内容质量。超时、403、5xx 等只标记待确认，**不自动删除、替换或更改原 URL**。内网地址和跳转到非公网的目标跳过。
 
-Actions 的 **WebAtlas maintenance** 自动校验数据与构建结果；手动运行可下载新的诊断报告，不自动修改仓库。确认报告后才更新数据与首页。若要人工保留某异常条目，可在对应 health 记录中设置 `status: unchecked` 并在 `detail` 说明决定；下一次自动报告仍可能重新提示。
+Actions 的 **WebNav build and deploy** 自动校验、构建和发布。链接诊断单独按需本地运行，不作为发布阻断条件。确认报告后才更新数据与首页。若要人工保留某异常条目，可在对应 health 记录中设置 `status: unchecked` 并在 `detail` 说明决定；下一次自动报告仍可能重新提示。
 
 ## 保留与迁移
 
-`legacy-index.html` 是此次整理前的首页快照。原有历史文章、资源和许可证继续保留；新首页不依赖旧版 Hexo 运行库。当前 Pages 发布方式沿用已有配置，本次没有变更仓库名或域名。
+`legacy-index.html` 是此次整理前的首页快照。原有历史文章、资源和许可证继续保留；新首页不依赖旧版 Hexo 运行库。Pages 通过 GitHub Actions 发布构建产物，不从分支直接发布。
 
 原版基于 [WebStack](https://github.com/WebStackPage/WebStackPage.github.io) / [hexo-theme-webstack](https://github.com/HCLonely/hexo-theme-webstack)。
 
@@ -69,3 +69,7 @@ python3 -m venv .venv
 ```
 
 打开 `http://127.0.0.1:8001/#toolkit`，编辑并保存 `toolkit/README.md` 后约一秒自动构建、刷新，保留背面和阅读位置。模板、数据、CSS 和 JS 修改也会触发更新。构建失败时页面显示错误，修正后继续保存即可恢复。这个命令用于本地预览；发布仍使用构建后的静态文件。可用 `--port 8002` 指定其他端口，按 Ctrl+C 停止。
+
+## 自动发布
+
+提交 Markdown / JSON 等源文件到 main 后，Actions 自动生成 HTML、打包并发布；PR 只构建、不发布。不检查生成文件是否已手动提交，也不自动写回仓库。仓库 Settings → Pages → Build and deployment → Source 需要一次性选择 **GitHub Actions**。生成文件与 dist 不进入版本控制。

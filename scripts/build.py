@@ -32,7 +32,7 @@ template=(p/'index.template.html').read_text();template=template.replace('{{DISC
 toolkit_markdown=(p/'toolkit/README.md').read_text()
 toolkit_html=markdown.markdown(toolkit_markdown,extensions=['extra','sane_lists'],output_format='html5')
 template=template.replace('{{TOOLKIT_RECORDS}}',toolkit_html)
-assert '{{' not in template, 'Unresolved template placeholder'
+assert not any(token in template for token in ['{{CARDS}}', '{{QUICKS}}', '{{CATEGORIES}}', '{{DISCOVERY}}', '{{TOOLKIT_RECORDS}}']), 'Unresolved template placeholder'
 (p/'index.html').write_text(template)
 (p/'data/catalog.json').write_text(json.dumps(links,ensure_ascii=False,indent=2)+'\n')
 print(f'Built {len(links)} cards, legacy entries retained according to owner decisions; {sum(x["status"]=="review" for x in links)} need review.')

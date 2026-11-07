@@ -34,3 +34,8 @@
 # Local Python environment
 .venv/
 __pycache__/
+
+# Generated site output
+/index.html
+/data/catalog.json
+/dist/

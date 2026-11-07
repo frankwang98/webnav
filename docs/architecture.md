@@ -23,7 +23,7 @@
 ## 工具记录维护
 
 
-修改 Markdown、目录 JSON 或模板后运行 `python3 scripts/build.py`。将源文件和构建产物一起提交。公共目录、浏览者本地网址、站长工具记录各自独立；工具记录库是公开静态内容。
+修改 Markdown、目录 JSON 或模板后运行 `python3 scripts/build.py`。只提交源文件；CI 负责生成产物。公共目录、浏览者本地网址、站长工具记录各自独立；工具记录库是公开静态内容。
 
 ## 验证与后续
 
@@ -31,3 +31,7 @@
 
 
 工具记录现以 `toolkit/README.md` 为唯一内容源。直接使用 Markdown 标题、段落、列表、引用、代码块和表格编写使用体验。首次构建先运行 `python3 -m pip install -r requirements.txt`，再运行 `python3 scripts/build.py`；背面在构建时渲染，不依赖浏览器运行 Markdown 解析器。
+
+## 发布链路
+
+Markdown / JSON → build.py → HTML / catalog → package_site.py → dist → Pages artifact → deploy-pages。开发预览与 CI 使用同一构建入口。生成文件不纳入版本控制，无需维护源文件与产物的双份一致性。PR 构建校验，main 部署；外链联网检查不参与发布。Pages Source 必须选择 GitHub Actions。

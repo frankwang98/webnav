@@ -1,18 +1,16 @@
-name: WebAtlas maintenance
+name: WebNav build and deploy
 on:
   push:
     branches: [main]
   pull_request:
   workflow_dispatch:
-    inputs:
-      check_links:
-        description: 'Check public links and upload a diagnostic report (does not change links)'
-        type: boolean
-        default: true
 permissions:
   contents: read
+concurrency:
+  group: webnav-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
-  validate:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -27,13 +25,21 @@ jobs:
       - run: node --check atlas.js
       - run: node --check v3.js
       - run: node --check workspace.js
-      - name: Check generated files are current
-        run: git diff --exit-code -- index.html data/catalog.json
-      - name: Check public links on request
-        if: github.event_name == 'workflow_dispatch' && inputs.check_links
-        run: python scripts/check_links.py
-      - uses: actions/upload-artifact@v4
-        if: github.event_name == 'workflow_dispatch' && inputs.check_links
+      - run: python scripts/package_site.py
+      - uses: actions/upload-pages-artifact@v3
         with:
-          name: link-diagnostics
-          path: data/health.json
+          path: dist
+  deploy:
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy generated site
+        id: deployment
+        uses: actions/deploy-pages@v4
