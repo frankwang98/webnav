@@ -7,12 +7,11 @@ out = root / 'dist'
 if out.exists():
     shutil.rmtree(out)
 out.mkdir()
-for item in root.iterdir():
-    if item.is_file() and (item.suffix in {'.html', '.css', '.js', '.svg', '.ico'} and item.name != 'index.template.html' or item.name == 'CNAME'):
-        shutil.copy2(item, out / item.name)
-for name in ['assets', 'images', 'css', 'js', '2022', '2023', 'about', 'archives', 'categories', 'link', 'tags']:
-    if (root / name).is_dir():
-        shutil.copytree(root / name, out / name)
+# Explicit public entry points; archived pages and build sources are never published.
+for name in ['index.html', 'atlas.css', 'atlas.js', 'atlas.svg', 'v3.css', 'v3.js', 'workspace.css', 'workspace.js']:
+    shutil.copy2(root / name, out / name)
+if (root / 'CNAME').exists():
+    shutil.copy2(root / 'CNAME', out / 'CNAME')
 (out / 'data').mkdir()
 shutil.copy2(root / 'data/catalog.json', out / 'data/catalog.json')
 (out / '.nojekyll').touch()

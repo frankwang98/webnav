@@ -1,8 +1,8 @@
-# WebAtlas · 好用的互联网
+# WebNav · 个人网址导航
 
 工作、学习、数字生活。按用途找到值得反复打开的网站与 App。
 
-**[打开 WebAtlas](https://frankwang98.asia/webnav/)** · [推荐 / 纠错](https://github.com/frankwang98/webnav/issues/new/choose)
+**[打开 WebNav](https://frankwang98.asia/webnav/)** · [推荐 / 纠错](https://github.com/frankwang98/webnav/issues/new/choose)
 
 - 主搜索框支持网址直达和 Google 搜索；目录支持站内搜索、分类、精选、App 与本地收藏。主题自动跟随系统明暗设置。
 - 原有 24 个条目中，6 个待确认条目已按维护者决定删除，继续保留 18 个。后续检查异常仍进入“待确认”。
@@ -43,11 +43,18 @@ python3 scripts/build.py
 
 Actions 的 **WebNav build and deploy** 自动校验、构建和发布。链接诊断单独按需本地运行，不作为发布阻断条件。确认报告后才更新数据与首页。若要人工保留某异常条目，可在对应 health 记录中设置 `status: unchecked` 并在 `detail` 说明决定；下一次自动报告仍可能重新提示。
 
-## 保留与迁移
+## 项目历史与当前技术
 
-`legacy-index.html` 是此次整理前的首页快照。原有历史文章、资源和许可证继续保留；新首页不依赖旧版 Hexo 运行库。Pages 通过 GitHub Actions 发布构建产物，不从分支直接发布。
+本站最初是 Hexo 主题 [hexo-theme-webstack](https://github.com/HCLonely/hexo-theme-webstack) 的二次开发站。现已移除旧博客页面、归档、标签及其专用资源，保留这段开发记录；原有许可证文件继续保留。
 
-原版基于 [WebStack](https://github.com/WebStackPage/WebStackPage.github.io) / [hexo-theme-webstack](https://github.com/HCLonely/hexo-theme-webstack)。
+现在采用轻量静态站点架构：
+
+- **HTML / CSS / 原生 JavaScript**：搜索、网址导航、主题和翻转视图，无前端框架。
+- **Markdown + Python-Markdown**：直接维护 `toolkit/README.md`，构建时渲染数字工具记录库。
+- **JSON + Python 构建脚本**：维护网址和探索数据，自动生成首页与目录数据。
+- **localStorage / IndexedDB**：在浏览器中保存个人网址、收藏、偏好与背景图片。
+- **Python 本地开发服务器**：监听源文件变化，自动构建并刷新预览。
+- **GitHub Actions + GitHub Pages**：提交源文件后自动校验、构建、打包和发布，不提交生成的 HTML。
 
 ## 双面工作空间
 
